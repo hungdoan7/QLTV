@@ -6,41 +6,41 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
-    public class NhanVien : Nguoi
+    public class NhanVien:Nguoi
     {
-        public string sMaNV;
-        public string sChucVu;
-        public string sBoPhan;
-        public double dLuongCB;
-        public double dPhuCap;
-		public double dLuong;
-
+        public string MaNV;
+        public string ChucVu;
+        public string BoPhan;
+        public int LuongCB;
+        double Phucap;
         public NhanVien() : base()
         {
 
         }
-        public NhanVien(string MaNV, string HoTen, string DiaChi, string SDT, string NgaySinh, string ChucVu, string BoPhan,double LuongCoBan, double PhuCap) : base(HoTen, DiaChi, SDT, NgaySinh)
+        public void nhap(string manv, string hoten, string diachi, string sdt, string ngaysinh, string chucvu, string bophan)
         {
-            this.sMaNV = MaNV;
-            this.sChucVu = ChucVu;
-            this.sBoPhan = BoPhan;
-			this.dLuongCB = LuongCoBan;
-			this.dPhuCap = PhuCap;
-			TinhLuong();
+            base.nhap(hoten, diachi, sdt, ngaysinh);
+            this.MaNV = manv;
+            this.ChucVu = chucvu;
+            this.BoPhan = bophan;
         }
         public void TinhLuong()
         {
-            this.dLuong = (this.dLuongCB + this.dPhuCap);
+            Console.WriteLine("luong: " + (this.LuongCB + this.Phucap));
         }
-        public override void Xuat()
+        public override void xuat()
         {
-            base.Xuat();
-            Console.WriteLine("Ma Nhan vien: " + this.sMaNV);
-            Console.WriteLine("Chuc Vu: " + this.sChucVu);
-            Console.WriteLine("Bo Phan: " + this.sBoPhan);
-            Console.WriteLine("Luong co ban: " + this.dLuongCB);
-            Console.WriteLine("Phu cap: " + this.dPhuCap);
-			Console.WriteLine("Phu cap: " + this.dLuong);
-		}
+            base.xuat();
+            Console.WriteLine("Ma Nhan vien: " + this.MaNV);
+            Console.WriteLine("Chuc Vu: " + this.ChucVu);
+            Console.WriteLine("Bo Phan: " + this.BoPhan);
+            Console.WriteLine("Luong co ban: " + this.LuongCB);
+            Console.WriteLine("Phu cap: " + this.Phucap);
+        }
+        public override void GiaHanThe()
+        {
+            int a = 1 + 2;
+
+        }
     }
 }

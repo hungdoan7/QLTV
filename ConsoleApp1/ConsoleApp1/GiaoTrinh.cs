@@ -9,25 +9,27 @@ namespace QLTV
 {
    public class GiaoTrinh:Sach
     {
-        public string sBoMon;
-        public int iTinhTrang;			//0 là cũ , 1 là mới
-
-        public GiaoTrinh(string MaSach, string Tua, string NXB, string TacGia, int Gia, int SoLuong, string BoMon, int TinhTrang) : base(MaSach, Tua, NXB, TacGia, Gia, SoLuong)
+        public string BoMon;
+        public int Ttrang;//0 là cũ , 1 là mới
+        public GiaoTrinh(string masach, string tua, string nxb, string tacgia, int gia, int soluong, string bomon) : base(masach, tua, nxb, tacgia, gia, soluong)
         {
-            this.sBoMon = BoMon;
-			this.iTinhTrang = TinhTrang;
+            this.BoMon = bomon;
         }
-      
-		public override void TinhThanhTien()
-		{
-			if (this.iTinhTrang == 0)
-			{
-				this.dThanhTien = this.dGia / 2;
-			}
-			else
-			{
-				this.dThanhTien = this.dGia;
-			}
-		}
-	}
+        public override void TinhTien()
+        {
+            if(Ttrang==0)
+            {
+                this.Thtien = this.Gia / 2;
+            }
+            else
+            {
+                this.Thtien = this.Gia;
+            }
+        }
+        //public void nhap(string masach, string tua, string nxb, string tacgia, int gia, string bomon, int soluong)
+        //{
+        //    base.nhap(masach, tua, nxb, tacgia, gia, soluong);
+        //    this.BoMon = bomon;
+        //}
+    }
 }

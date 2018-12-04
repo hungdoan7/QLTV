@@ -8,15 +8,15 @@ namespace QLTV
 {
    public class KhoaHoc:Sach
     {
-        public string sChuyenNganh;
-        public double dThue;
-        public KhoaHoc(string MaSach, string Tua, string NXB, string TacGia, int Gia, int SoLuong, string ChuyenNganh) : base(MaSach, Tua, NXB, TacGia, Gia, SoLuong)
+        public string ChuyenNganh;
+        public double Thue;
+        public KhoaHoc(string masach, string tua, string nxb, string tacgia, int gia, int soluong, string chnganh) : base(masach, tua, nxb, tacgia, gia, soluong)
         {
-            this.sChuyenNganh = ChuyenNganh;
+            this.ChuyenNganh = chnganh;
         }
-        public override void TinhThanhTien()
+        public override void TinhTien()
         {
-            this.dThanhTien = this.dGia + this.dGia*this.dThue;
+            this.Thtien = this.Gia + this.Gia*this.Thue;
         }
     }
 }
