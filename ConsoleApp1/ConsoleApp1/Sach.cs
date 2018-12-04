@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
-  public  class Sach
-    {
+    public abstract class Sach
+    { 
         public string Ma_sach;
         public string Tua;
         public string NXB;
         public string TacGia;
         public int Gia;
         public int SoLuong;
-
+        public double Thtien;
 
         public  Sach(string masach, string tua, string nxb, string tacgia, int gia, int soluong)
         {
@@ -25,5 +25,6 @@ namespace QLTV
             this.Gia = gia;
             this.SoLuong = soluong;
         }
+        public abstract void TinhTien();
     }
 }

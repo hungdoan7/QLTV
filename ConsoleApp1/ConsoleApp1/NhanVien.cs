@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
- public   class NhanVien:Nguoi
+    public class NhanVien:Nguoi
     {
         public string MaNV;
         public string ChucVu;

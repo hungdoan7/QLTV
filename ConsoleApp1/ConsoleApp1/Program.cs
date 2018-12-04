@@ -8,13 +8,17 @@ namespace QLTV
 {
     class Program
     {
-        public List<KhoaHoc> dsKH;
-        public List<LichSu> dsTK;
-        public List<GiaoTrinh> dsGT;
-        public List<DocGia> dsDG;
+        public static iDate today = new iDate();
         static void Main(string[] args)
-        {
-            
-    }
+        { 
+            Console.WriteLine("Ngay hom nay: ");
+            today.ngay = Convert.ToInt32(Console.ReadLine());
+            today.thang = Convert.ToInt32(Console.ReadLine());
+            today.nam = Convert.ToInt32(Console.ReadLine());
+            ThuVien tv = new ThuVien();
+            tv.NhapThuVien();
+            tv.NhapHDMuon();
+            tv.XuatDsHDMuon();
+        }
     }
 }

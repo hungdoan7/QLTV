@@ -9,19 +9,14 @@ namespace QLTV
    public class KhoaHoc:Sach
     {
         public string ChuyenNganh;
-        public KhoaHoc(string masach, string tua, string nxb, string tacgia, int gia, int soluong, string chnganh) :base(masach,tua,nxb,tacgia,gia,soluong)
-            {
+        public double Thue;
+        public KhoaHoc(string masach, string tua, string nxb, string tacgia, int gia, int soluong, string chnganh) : base(masach, tua, nxb, tacgia, gia, soluong)
+        {
             this.ChuyenNganh = chnganh;
-            }
-        //public KhoaHoc(string masach, string tua, string nxb, string tacgia, int gia, string chuyennganh, int soluong):
-        //{
-            
-        //}
-        //public virtual void nhap(string masach, string tua, string nxb, string tacgia, int gia,string chuyennganh,int soluong)
-        //{
-        //    base.nhap(masach,tua,nxb,tacgia,gia,soluong);
-        //    this.ChuyenNganh = chuyennganh;
-
-        //}
+        }
+        public override void TinhTien()
+        {
+            this.Thtien = this.Gia + this.Gia*this.Thue;
+        }
     }
 }

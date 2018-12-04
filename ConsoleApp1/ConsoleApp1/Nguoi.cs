@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
-   public class Nguoi
+   public abstract class Nguoi
     {
         public string HoTen;
         public string DiaChi;
@@ -26,6 +26,7 @@ namespace QLTV
             Console.WriteLine("SDT: " + this.SDT);
             Console.WriteLine("Ngay Sinh: " + this.NgaySinh);
         }
+        public abstract void GiaHanThe();
 
     }
 }
