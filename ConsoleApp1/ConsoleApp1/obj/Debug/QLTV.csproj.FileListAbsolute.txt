@@ -1,0 +1,7 @@
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\obj\Debug\QLTV.csprojAssemblyReference.cache
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\obj\Debug\QLTV.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\ADMIN\Documents\GitHub\Qu-n-l-th-vi-n-\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
