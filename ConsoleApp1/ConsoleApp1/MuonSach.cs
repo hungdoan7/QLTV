@@ -8,19 +8,19 @@ namespace QLTV
 {
     public class MuonSach
     {
-        public DocGia NgMuon;
-        public List<Sach> dsSachMuon;
-        public int slSachMuon;
+        public DocGia dgNguoiMuon;
+        public List<Sach> lDSSachMuon;
+        public int iSoLuongSachMuon;
         public void Muon()
         { 
-        }
-        public MuonSach(DocGia NguoiMuon,List<Sach> ListSachMuon)
-        {
-           
-            this.NgMuon = NguoiMuon;
-            this.dsSachMuon = ListSachMuon;
-            this.slSachMuon = this.dsSachMuon.Count;
-        }
 
+        }
+        public MuonSach(DocGia NguoiMuon,List<Sach> DSSachMuon)
+        {         
+            this.dgNguoiMuon = NguoiMuon;
+            this.lDSSachMuon = DSSachMuon;
+            this.iSoLuongSachMuon = this.lDSSachMuon.Count;
+        }
+		
     }
 }

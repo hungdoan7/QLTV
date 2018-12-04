@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="DocGiaVIP.cs" />
     <Compile Include="GiaoTrinh.cs" />
-    <Compile Include="iDate.cs" />
+    <Compile Include="Date.cs" />
     <Compile Include="KhoaHoc.cs" />
     <Compile Include="LichSu.cs" />
     <Compile Include="MuonSach.cs" />

@@ -6,19 +6,27 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
-    class Program
+	
+	class Program
     {
-        public static iDate today = new iDate();
-        static void Main(string[] args)
+		// tim cach de dToday thanh bien toan cuc
+		// tao day du cac ham nhap xuat cho cac class
+		// chu y den tinh dong goi , han che su dung public
+		// khai bao day du cac properties
+
+		public static Date dToday = new Date();
+		static void Main(string[] args)
         { 
             Console.WriteLine("Ngay hom nay: ");
-            today.ngay = Convert.ToInt32(Console.ReadLine());
-            today.thang = Convert.ToInt32(Console.ReadLine());
-            today.nam = Convert.ToInt32(Console.ReadLine());
-            ThuVien tv = new ThuVien();
-            tv.NhapThuVien();
-            tv.NhapHDMuon();
-            tv.XuatDsHDMuon();
-        }
+            dToday.iNgay = Convert.ToInt32(Console.ReadLine());
+            dToday.iThang = Convert.ToInt32(Console.ReadLine());
+            dToday.iNam = Convert.ToInt32(Console.ReadLine());
+
+			ThuVien thuvien = new ThuVien();
+			thuvien.NhapThuVien();
+			thuvien.NhapHDMuon();
+			thuvien.XuatDsHDMuon();
+
+		}
     }
 }

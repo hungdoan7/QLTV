@@ -6,48 +6,35 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
-  public  class DocGia:Nguoi
+  public  class DocGia : Nguoi
     {
-        public string MaDG;
-        public string Email;
-        public iDate NgayLapThe;
-        public double TaiKhoan;
+        public string sMaDG;
+        public string sEmail;
+        public Date dtNgayLapThe;
+        public double dTaiKhoan;
 
         public DocGia() : base()
         {
 
         }
-        public DocGia(string madg, string hoten, string diachi, string sdt, string ngaysinh, string email, int ngay, int thang, int nam,double taikhoan)
+        public DocGia(string MaDG, string HoTen, string DiaChi, string SDT, string NgaySinh, string Email, int Ngay, int Thang, int Nam, double TaiKhoan) : base(HoTen, DiaChi, SDT, NgaySinh)
         {
-
-            base.nhap(hoten, diachi, sdt, ngaysinh);
-            this.MaDG = madg;
-            this.Email = email;
-            NgayLapThe = new iDate();
-            this.NgayLapThe.ngay = ngay;
-            this.NgayLapThe.thang = thang;
-            this.NgayLapThe.nam = nam;
-            this.TaiKhoan = taikhoan;
+            this.sMaDG = MaDG;
+            this.sEmail = Email;
+            this.dtNgayLapThe = new Date();
+            this.dtNgayLapThe.iNgay = Ngay;
+            this.dtNgayLapThe.iThang = Thang;
+            this.dtNgayLapThe.iNam = Nam;
+            this.dTaiKhoan = TaiKhoan;
         }
-        public  void nhap(string madg, string hoten, string diachi, string sdt, string email, string ngaysinh, int ngay, int thang, int nam,double taikhoan)
+  
+        public override void Xuat()
         {
-            base.nhap(hoten, diachi, sdt, ngaysinh);
-            this.MaDG = madg;
-            this.Email = email;
-            NgayLapThe = new iDate();
-            this.NgayLapThe.ngay = ngay;
-            this.NgayLapThe.thang = thang;
-            this.NgayLapThe.nam = nam;
-            this.TaiKhoan = taikhoan;
-
-        }
-        public override void xuat()
-        {
-            base.xuat();
-            Console.WriteLine("Ma doc gia: " + this.MaDG);
-            Console.WriteLine("Email: " + this.Email);
-            Console.WriteLine("Ngay Lap the: " + this.NgayLapThe.ngay+"/"+this.NgayLapThe.thang+"/"+this.NgayLapThe.nam);
-            Console.WriteLine("So du tai khoan: " + this.TaiKhoan);
+            base.Xuat();
+            Console.WriteLine("Ma doc gia: " + this.sMaDG);
+            Console.WriteLine("Email: " + this.sEmail);
+            Console.WriteLine("Ngay Lap the: " + this.dtNgayLapThe.iNgay+"/"+this.dtNgayLapThe.iThang+"/"+this.dtNgayLapThe.iNam);
+            Console.WriteLine("So du tai khoan: " + this.dTaiKhoan);
         }
 
     }

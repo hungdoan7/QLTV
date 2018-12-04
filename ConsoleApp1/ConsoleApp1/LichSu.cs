@@ -8,15 +8,15 @@ namespace QLTV
 {
   public  class LichSu:Sach
     {
-        public string Quocgia;
-        public double Thue;
-        public LichSu(string masach, string tua, string nxb, string tacgia, int gia, int soluong, string quocgia) : base(masach, tua, nxb, tacgia, gia, soluong)
+        public string sQuocgia;
+        public double dThue;
+        public LichSu(string MaSach, string Tua, string NXB, string TacGia, int Gia, int SoLuong, string QuocGia) : base(MaSach, Tua, NXB, TacGia, Gia, SoLuong)
         {
-            this.Quocgia = quocgia;
+            this.sQuocgia = QuocGia;
         }
-        public override void TinhTien()
+        public override void TinhThanhTien()
         {
-            this.Thtien = this.Gia + 5000 * this.Thue;
+            this.dThanhTien = this.dGia + 5000 * this.dThue;
         }
     }
 }

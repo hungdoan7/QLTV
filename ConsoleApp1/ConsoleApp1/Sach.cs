@@ -8,23 +8,41 @@ namespace QLTV
 {
     public abstract class Sach
     { 
-        public string Ma_sach;
-        public string Tua;
-        public string NXB;
-        public string TacGia;
-        public int Gia;
-        public int SoLuong;
-        public double Thtien;
+        public string sMaSach;
+        public string sTua;
+        public string sNXB;
+        public string sTacGia;
+        public double dGia;
+        public int iSoLuong;
+        public double dThanhTien;
 
-        public  Sach(string masach, string tua, string nxb, string tacgia, int gia, int soluong)
+        public  Sach(string MaSach, string Tua, string NXB, string TacGia, double Gia, int SoLuong)
         {
-            this.Ma_sach = masach;
-            this.Tua = tua;
-            this.NXB = nxb;
-            this.TacGia = tacgia;
-            this.Gia = gia;
-            this.SoLuong = soluong;
+            this.sMaSach = MaSach;
+            this.sTua = Tua;
+            this.sNXB = NXB;
+            this.sTacGia = TacGia;
+            this.dGia = Gia;
+            this.iSoLuong = SoLuong;
         }
-        public abstract void TinhTien();
-    }
+        
+		public void Nhap()
+		{
+			Console.WriteLine(" Nhap vao tua sach: ");
+			this.sMaSach = Console.ReadLine();
+			Console.WriteLine(" Nhap vao NXB: ");
+			this.sNXB = Console.ReadLine();
+			Console.WriteLine(" Nhap vao tac gia: ");
+			this.sTacGia = Console.ReadLine();
+			Console.WriteLine(" Nhap vao gia: ");
+			string Temp = Console.ReadLine();
+			this.dGia= Convert.ToDouble(Temp);
+			Console.WriteLine(" Nhap vao so luong: ");
+			Temp = Console.ReadLine();
+			this.dGia = Convert.ToInt32(Temp);
+		}
+
+
+		public abstract void TinhThanhTien();
+	}
 }

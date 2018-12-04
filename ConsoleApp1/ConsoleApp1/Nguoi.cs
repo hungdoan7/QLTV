@@ -6,27 +6,31 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
-   public abstract class Nguoi
+   public class Nguoi
     {
-        public string HoTen;
-        public string DiaChi;
-        public string SDT;
-        public string NgaySinh;
-        public virtual void nhap(string hoten, string diachi, string sdt, string ngaysinh)
+        public string sHoTen;
+        public string sDiaChi;
+        public string sSDT;
+        public string sNgaySinh;
+		public Nguoi()
+		{
+
+		}
+        public Nguoi (string HoTen, string DiaChi, string SDT, string NgaySinh)
         {
-            this.HoTen = hoten;
-            this.DiaChi = diachi;
-            this.SDT = sdt;
-            this.NgaySinh = ngaysinh;
+            this.sHoTen = HoTen;
+            this.sDiaChi = DiaChi;
+            this.sSDT = SDT;
+            this.sNgaySinh = NgaySinh;
         }
-        public virtual void xuat()
+        public virtual void Xuat()
         {
-            Console.WriteLine("Ho Ten: " + this.HoTen);
-            Console.WriteLine("Dia Chi: " + this.DiaChi);
-            Console.WriteLine("SDT: " + this.SDT);
-            Console.WriteLine("Ngay Sinh: " + this.NgaySinh);
+            Console.WriteLine("Ho Ten: " + this.sHoTen);
+            Console.WriteLine("Dia Chi: " + this.sDiaChi);
+            Console.WriteLine("SDT: " + this.sSDT);
+            Console.WriteLine("Ngay Sinh: " + this.sNgaySinh);
         }
-        public abstract void GiaHanThe();
+		//interface o cho gia han the 
 
     }
 }
