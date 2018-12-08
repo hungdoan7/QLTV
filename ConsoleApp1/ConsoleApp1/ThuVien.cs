@@ -295,6 +295,14 @@ namespace QLTV
 			int KHhayGT = Convert.ToInt32(Console.ReadLine());
 			if (KHhayGT == 0)
 			{
+				if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
+				{
+					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 60)
+					{
+						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 2 thang ), can gia han the ");
+						return;
+					}
+				}
 				Console.WriteLine("Nhap ma dau sach hoac tua sach: ");
 				string Temp_NhapMaTuaSach = Console.ReadLine();
 				for (int h = 0; h < this.lDSHopDongMuon[ViTriDocGia].DSSachKHMuon.Count; h++)
@@ -303,17 +311,6 @@ namespace QLTV
 					{
 						Console.WriteLine(" Ban da muon 1 cuon sach cung dang ma chua tra, Khong the muon tiep, Tra cuon sach cu de tiep tuc muon cuon moi nay ");
 						return;
-					}
-					else
-					{
-						if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
-						{
-							if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 60)
-							{
-								Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 2 thang ), can gia han the ");
-								return;
-							}
-						}
 					}
 				}
 				int Temp_ViTriDauSach = KiemTraViTriSachKH(Temp_NhapMaTuaSach);
@@ -342,6 +339,14 @@ namespace QLTV
 			}
 			else
 			{
+				if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
+				{
+					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 30)
+					{
+						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 1 thang ), can gia han the ");
+						return;
+					}
+				}
 				Console.WriteLine("Nhap ma dau sach hoac tua sach: ");
 				string Temp_NhapMaTuaSach = Console.ReadLine();
 				for (int h = 0; h < this.lDSHopDongMuon[ViTriDocGia].DSSachGTMuon.Count; h++)
@@ -350,18 +355,7 @@ namespace QLTV
 					{
 						Console.WriteLine(" Ban da muon 1 cuon sach cung dang ma chua tra, Khong the muon tiep, Tra cuon sach cu de tiep tuc muon cuon moi nay ");
 						return;
-					}
-					else
-					{
-						if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
-						{
-							if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 30)
-							{
-								Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 1 thang ), can gia han the ");
-								return;
-							}
-						}
-					}			
+					}		
 				}
 				int Temp_ViTriDauSach = KiemTraViTriSachGT(Temp_NhapMaTuaSach);
 				if (Temp_ViTriDauSach != -1)
