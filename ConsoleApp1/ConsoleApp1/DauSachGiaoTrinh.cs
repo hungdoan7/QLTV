@@ -51,16 +51,16 @@ namespace QLTV
 		{
 			if (this.iTinhTrang == 0)
 			{
-				this.dThanhTien = (this.dGia / 2) + (this.dThue * this.dGia);
+				this.dThanhTien = (this.dGia / 2) + (this.dThue * this.dGia/100);
 			}
 			else
 			{
-				this.dThanhTien = this.dGia + (this.dThue * this.dGia);
+				this.dThanhTien = this.dGia + (this.dThue * this.dGia/100);
 			}
 		}
 		public override void XacDinhThue()
 		{
-			this.dThue = 10/100;
+			this.dThue = 10;
 		}
 	}
 }

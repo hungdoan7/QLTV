@@ -43,11 +43,11 @@ namespace QLTV
 		}
 		public override void TinhThanhTien()
 		{
-			this.dThanhTien = this.dGia + (this.dGia * this.dThue);
+			this.dThanhTien = this.dGia + (this.dGia * this.dThue/100);
 		}
 		public override void XacDinhThue()
 		{
-			this.dThue= 5/100 ;
+			this.dThue= 5;
 		}
 	}
 }

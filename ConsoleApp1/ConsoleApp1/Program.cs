@@ -5,17 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 // muc tieu
-
-// interface o cho gia han the 
-// pham thanh thao vy S2
-// tim cach  su dung  LinQ, lambda ex
-
-
-
 // chua lam duoc
-
-// tam thoi chung ta con chua giai quyet duoc viec su dung cac cong nghe ma thay khuyen khich,  
 // chua giai quyet van de doc gia VIP, nhan vien thu vien
+// bo sung nhieu tinh nang thong ke, sap xep 
 
 namespace QLTV
 {
@@ -51,6 +43,7 @@ namespace QLTV
 				Console.WriteLine(" 3.Tim kiem thong tin 1 dau sach bat ky ");
 				Console.WriteLine(" 4.Cac tinh nang thong ke va sap xep thu vien ");
 				Console.WriteLine(" 5.Xoa hoac them moi sach vao thu vien ");
+				Console.WriteLine(" 6.Danh sach luong nhan vien thu vien ");
 				Console.Write("Xin hay nhap vao lua chon: ");
 				Chon = Convert.ToInt32(Console.ReadLine());
 				switch (Chon)
@@ -116,7 +109,7 @@ namespace QLTV
 														{
 															Console.WriteLine(" Nhap so tien can nap: ");
 															double Tien = Convert.ToDouble(Console.ReadLine());
-															Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.NapThemTien);
+															Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.Tien);
 															nt(Tien);
 															break;
 														}
@@ -152,7 +145,7 @@ namespace QLTV
 										{
 											Console.WriteLine(" Nhap so tien can nap: ");
 											double Tien = Convert.ToDouble(Console.ReadLine());
-											Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.NapThemTien);
+											Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.Tien);
 											nt(Tien);
 											break;
 										}
@@ -217,8 +210,10 @@ namespace QLTV
 						}
 					case 3:
 						{
-							Console.WriteLine("Hay nhap vao ma sach hoac tua sach: ");
+							Console.Write("Hay nhap vao ma sach hoac tua sach: ");
 							string Ma_Temp = Console.ReadLine();
+							Them t = new Them(thuvien.TimKiemThongTinDauSach);
+							t(Ma_Temp);
 							break;
 						}
 					case 4:
@@ -232,13 +227,13 @@ namespace QLTV
 							Console.WriteLine(" 5.Danh sach doc gia ");
 							Console.WriteLine(" 6.Danh sach sach co gia tri lon hon 1 so tien cu the ");
 							Console.WriteLine(" 7.Danh sach nhung cuon sach sap toi han tra");
-							Console.WriteLine(" 8.Danh sach nhung doc gia sap het han the ");
+							Console.WriteLine(" 8.Danh sach nhung doc gia sap het han the (duoi 30 ngay ke tu hom nay la het han) ");
 							Console.WriteLine(" 9.Danh sach nhung doc gia muon nhieu sach nhat ");
-							Console.WriteLine(" 10.Thong ke so luong sach duoc muon va phan tram so voi so sach ban dau, cung nhu nguoc lai la voi so sach con nam trong thu vien ");
-							Console.WriteLine(" 11.Sap xep danh sach doc gia theo thu tu giam dan ngay het han the ");
-							Console.WriteLine(" 12.Sap xep sach theo thu tu tang dan tien ");
-							Console.WriteLine(" 13.Sap xep danh sach doc gia theo thu tu giam dan tong so sach dang muon  ");
-							
+							Console.WriteLine(" 10.Thong ke so luong sach duoc muon va phan tram so voi so sach ban dau ");
+							Console.WriteLine(" 11.Sap xep danh sach doc gia theo thu tu tang dan ngay het han the ");
+							Console.WriteLine(" 12.Xuat ra man hinh danh sach sach giao trinh theo thu tu gia tang dan ");
+							Console.WriteLine(" 13.Xuat ra man hinh danh sach sap xep doc gia theo thu tu giam dan tong so sach dang muon  ");
+							Console.WriteLine(" 14.Xuat ra man hinh danh sach sach khoa hoc theo thu tu gia giam dan ");
 							Console.Write(" Chon:  ");
 							ChonChon = Convert.ToInt32(Console.ReadLine());
 							switch (ChonChon)
@@ -307,15 +302,36 @@ namespace QLTV
 									}
 								case 10:
 									{
-										
+										DanhSach ds = new DanhSach(thuvien.ThongKeSoSach);
+										ds();
 										break;
 									}
 								case 11:
 									{
+										thuvien.SortIncreasingTheDateOfCustomer(0, thuvien.DSDocGia.Count - 1);
+										DanhSach ds = new DanhSach(thuvien.XuatRaDanhSachDocGia);
+										ds();
+										break;
+									}
+								case 12:
+									{
+										DanhSach ds = (thuvien.SapXepDanhSachSachGTTheoGiaTangDan);
+										ds();
+										break;
+									}
+								case 13:
+									{
+										CongViec cv = new CongViec(thuvien.SapXepDocGiaTheoSoSachMuonGiamDan);
+										cv(thuvien.DSHopDongMuon.Count);
+										break;
+									}
+								case 14:
+									{
+										DanhSach ds = (thuvien.SapXepDanhSachSachKHTheoGiaGiamDan);
+										ds();
 										break;
 									}
 							}
-							
 							break;
 						}
 					case 5:
@@ -395,6 +411,12 @@ namespace QLTV
 										break;
 									}
 							}
+							break;
+						}
+					case 6:
+						{
+							DanhSach ds = new DanhSach(thuvien.XuatTatCaNhanVien);
+							ds();
 							break;
 						}
 					default:

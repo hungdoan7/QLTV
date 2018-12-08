@@ -8,12 +8,43 @@ namespace QLTV
 {
     public class Date
     {
-        public int iNgay { get; set; }
-
-        public int iThang { get; set; }
-
-        public int iNam { get; set; }
-        public Date()
+		private int iNgay;
+		private int iThang;
+		private int iNam;
+		public int Ngay
+		{
+			get { return this.iNgay; }
+			set
+			{
+				if(value < 0||value>30)
+				throw new ArgumentOutOfRangeException
+				(" must be between 1 and 30");
+				this.iNgay = value;
+			}
+		}
+		public int Thang
+		{
+			get { return this.iThang; }
+			set
+			{
+				if (value < 0 || value > 30)
+					throw new ArgumentOutOfRangeException
+					(" must be between 1 and 12");
+				this.iThang = value;
+			}
+		}
+		public int Nam
+		{
+			get { return this.iNam; }
+			set
+			{
+				if (value < 2018 )
+					throw new ArgumentOutOfRangeException
+					(" must be 2018");
+				this.iThang = value;
+			}
+		}
+		public Date()
         {
 
         }

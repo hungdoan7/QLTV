@@ -87,7 +87,7 @@ namespace QLTV
 		}
 		public virtual void Xuat()
 		{
-			Console.WriteLine("Thong tin cuon sach: ");
+			
 			Console.WriteLine(" Ma dau sach: " + this.sMaDauSach);
 			Console.WriteLine(" Tua sach: " + this.sTua);
 			Console.WriteLine(" NXB: " + this.sNXB);

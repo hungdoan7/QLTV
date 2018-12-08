@@ -34,7 +34,13 @@ namespace QLTV
 		public double TaiKhoan
 		{
 			get { return this.dTaiKhoan; }
-			set { this.dTaiKhoan = value; }
+			set
+			{
+				if (value < 0 )
+					throw new ArgumentOutOfRangeException
+					(" must be > 0");
+				this.dTaiKhoan = value;
+			}
 		}
 		public DocGia() : base()
         {
@@ -45,9 +51,9 @@ namespace QLTV
             this.sMaDG = MaDG;
             this.sEmail = Email;
             this.dtNgayHetHanThe = new Date();
-            this.dtNgayHetHanThe.iNgay = NgayHH;
-            this.dtNgayHetHanThe.iThang = ThangHH;
-            this.dtNgayHetHanThe.iNam = NamHH;
+            this.dtNgayHetHanThe.Ngay = NgayHH;
+            this.dtNgayHetHanThe.Thang = ThangHH;
+            this.dtNgayHetHanThe.Nam = NamHH;
             this.dTaiKhoan = TaiKhoan;
         }
 		public override void Nhap()
@@ -61,7 +67,7 @@ namespace QLTV
             base.Xuat();
             Console.WriteLine("Ma doc gia: " + this.sMaDG);
             Console.WriteLine("Email: " + this.sEmail);
-            Console.WriteLine("Ngay het han the: " + this.dtNgayHetHanThe.iNgay+"/"+this.dtNgayHetHanThe.iThang+"/"+this.dtNgayHetHanThe.iNam);
+            Console.WriteLine("Ngay het han the: " + this.dtNgayHetHanThe.Ngay+"/"+this.dtNgayHetHanThe.Thang+"/"+this.dtNgayHetHanThe.Nam);
             Console.WriteLine("So du tai khoan: " + this.dTaiKhoan);
         }
 		public void GiaHanThe(Date Today)
@@ -77,7 +83,7 @@ namespace QLTV
 				this.dTaiKhoan = this.dTaiKhoan - 50000;
 			}
 		}
-		public void NapThemTien(double Tien)
+		public override void Tien(double Tien)
 		{
 			this.dTaiKhoan = this.dTaiKhoan + Tien;
 		}

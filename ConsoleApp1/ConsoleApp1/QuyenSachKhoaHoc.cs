@@ -55,8 +55,8 @@ namespace QLTV
 			if (this.bDaMuonHayChua == false)
 			{
 				Console.WriteLine(" Da duoc muon! ");
-				Console.WriteLine("Ngay het duoc muon : " + this.dtNgayMuon.iNgay + "/" + this.dtNgayMuon.iThang + "/" + this.dtNgayMuon.iNam);
-				Console.WriteLine("Ngay het phai tra : " + this.dtNgayPhaiTra.iNgay + "/" + this.dtNgayPhaiTra.iThang + "/" + this.dtNgayPhaiTra.iNam);
+				Console.WriteLine("Ngay het duoc muon : " + this.dtNgayMuon.Ngay + "/" + this.dtNgayMuon.Thang + "/" + this.dtNgayMuon.Nam);
+				Console.WriteLine("Ngay het phai tra : " + this.dtNgayPhaiTra.Ngay + "/" + this.dtNgayPhaiTra.Thang + "/" + this.dtNgayPhaiTra.Nam);
 			}
 			else
 			{
@@ -66,7 +66,7 @@ namespace QLTV
 		}
 		public override void TinhThanhTien()
 		{
-			this.dThanhTien = this.dGia + (this.dGia * this.dThue);
+			this.dThanhTien = this.dGia + (this.dGia * this.dThue/100);
 		}
 		
 		public void MuonNgayHomNay(Date Today)

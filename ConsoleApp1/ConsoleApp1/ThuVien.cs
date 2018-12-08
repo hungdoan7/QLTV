@@ -12,13 +12,16 @@ namespace QLTV
 		private List<DauSachKhoaHoc> lDSDauSachKH;
 		private List<DauSachGiaoTrinh> lDSDauSachGT;
 		private List<DocGia> lDSDocGia;
+		private List<NhanVien> lDSNhanVien;
 		private List<HopDongMuon> lDSHopDongMuon;
 		private Date dtToday;
+		
 
 		public List<DauSachKhoaHoc> DSDauSachKH { get => lDSDauSachKH; set => lDSDauSachKH = value; }
 		public List<DauSachGiaoTrinh> DSDauSachGT { get => lDSDauSachGT; set => lDSDauSachGT = value; }
 		public List<HopDongMuon> DSHopDongMuon { get => lDSHopDongMuon; set => lDSHopDongMuon = value; }
 		public List<DocGia> DSDocGia { get => lDSDocGia; set => lDSDocGia = value; }
+		public List<NhanVien> DSNhanVien { get => lDSNhanVien; set => lDSNhanVien = value; }
 		public Date Today { get => dtToday; set => dtToday = value; }
 
 		public ThuVien()
@@ -26,26 +29,33 @@ namespace QLTV
 			this.lDSDauSachKH = new List<DauSachKhoaHoc>();
 			this.lDSDauSachGT = new List<DauSachGiaoTrinh>();
 			this.lDSDocGia = new List<DocGia>();
+			this.lDSNhanVien = new List<NhanVien>();
 			this.lDSHopDongMuon = new List<HopDongMuon>();
 			this.dtToday = new Date();
 		}
 		public void NhapNgayHomNay()
 		{
 			this.dtToday = new Date();
-			Console.WriteLine("Hay nhap vao ngay hom nay: ");
+			Console.WriteLine("Vui long nhap vao ngay hom nay: ");
 			Console.Write("Ngay: ");
 
-			this.dtToday.iNgay = Convert.ToInt32(Console.ReadLine());
+			this.dtToday.Ngay = Convert.ToInt32(Console.ReadLine());
 			Console.Write("Thang: ");
 
-			this.dtToday.iThang = Convert.ToInt32(Console.ReadLine());
+			this.dtToday.Thang = Convert.ToInt32(Console.ReadLine());
 			Console.Write("Nam: ");
 
-			this.dtToday.iNam = Convert.ToInt32(Console.ReadLine());
+			this.dtToday.Nam = Convert.ToInt32(Console.ReadLine());
 		}
 		public void NhapThuVien()
 		{
 			NhapNgayHomNay();
+
+			NhanVien nv = new NhanVien("NV01", "Doan Van Nga", "HCM", "0123432534", 12, 3, 1993, 0, 1500000);
+			this.lDSNhanVien.Add(nv);
+			nv = new NhanVien("NV02", "Nguyen Thi Tuyet Mai", "HCM", "01234356594", 18, 5, 1994, 1, 1500000);
+			this.lDSNhanVien.Add(nv);
+
 
 			DauSachKhoaHoc Temp1 = new DauSachKhoaHoc("KH101", "Cac nguyen to hoa hoc", "DHQG", "Nguyen Van A", 10000, "Hoa hoc");
 			QuyenSachKhoaHoc Temp2 = new QuyenSachKhoaHoc("KH101", "Cac nguyen to hoa hoc", "DHQG", "Nguyen Van A", 10000, "Hoa hoc", 1);
@@ -143,7 +153,7 @@ namespace QLTV
 			Temp.DSSachGTMuon.Add(this.DSDauSachGT[1].DSQuyenSach[1]);
 			Temp.SoLuongSachMuon++;
 			this.DSDauSachGT[1].DSQuyenSach[1].DaMuonHayChua = false;
-			this.lDSDauSachGT[1].DSQuyenSach[1].NgayMuon = (Temp.NguoiMuon.NgayHetHanThe - 70);
+			this.lDSDauSachGT[1].DSQuyenSach[1].NgayMuon = (Temp.NguoiMuon.NgayHetHanThe - 130);
 			this.lDSDauSachGT[1].DSQuyenSach[1].XDNgayTra();
 			this.DSDauSachGT[1].SoLuongTrongThuVien--;
 
@@ -164,6 +174,22 @@ namespace QLTV
 			this.DSHopDongMuon.Add(Temp);
 
 			//Hop dong co san thu 3
+			Temp = new HopDongMuon();
+			Temp.NguoiMuon = this.DSDocGia[2];
+			this.DSHopDongMuon.Add(Temp);
+
+			//Hop dong co san thu 4
+			Temp = new HopDongMuon();
+			Temp.NguoiMuon = this.DSDocGia[3];
+
+			Temp.DSSachGTMuon.Add(this.DSDauSachGT[2].DSQuyenSach[1]);
+			Temp.SoLuongSachMuon++;
+			this.DSDauSachGT[2].DSQuyenSach[1].DaMuonHayChua = false;
+			this.lDSDauSachGT[2].DSQuyenSach[1].NgayMuon = (Temp.NguoiMuon.NgayHetHanThe - 70);
+			this.lDSDauSachGT[2].DSQuyenSach[1].XDNgayTra();
+			this.DSDauSachGT[2].SoLuongTrongThuVien--;
+
+			this.DSHopDongMuon.Add(Temp);
 
 
 		}
@@ -289,29 +315,29 @@ namespace QLTV
 							}
 						}
 					}
-					int Temp_ViTriDauSach = KiemTraViTriSachKH(Temp_NhapMaTuaSach);
-					if (Temp_ViTriDauSach != -1)
+				}
+				int Temp_ViTriDauSach = KiemTraViTriSachKH(Temp_NhapMaTuaSach);
+				if (Temp_ViTriDauSach != -1)
+				{
+					if (this.lDSDauSachKH[Temp_ViTriDauSach].SoLuongTrongThuVien > 0)
 					{
-						if (this.lDSDauSachKH[Temp_ViTriDauSach].SoLuongTrongThuVien > 0)
-						{
-							int Temp_ViTriSachRong = TimSachKHChuaDuocMuon(Temp_ViTriDauSach);
-							this.lDSHopDongMuon[ViTriDocGia].DSSachKHMuon.Add(this.lDSDauSachKH[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong]);
-							this.lDSDauSachKH[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong].MuonNgayHomNay(this.dtToday);
-							this.lDSDauSachKH[Temp_ViTriDauSach].SoLuongTrongThuVien--;
-							this.lDSHopDongMuon[ViTriDocGia].SoLuongSachMuon++;
-							Console.WriteLine("Muon thanh cong");
-						}
-						else
-						{
-							Console.WriteLine("Thu vien da het sach tua do");
-							return;
-						}
+						int Temp_ViTriSachRong = TimSachKHChuaDuocMuon(Temp_ViTriDauSach);
+						this.lDSHopDongMuon[ViTriDocGia].DSSachKHMuon.Add(this.lDSDauSachKH[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong]);
+						this.lDSDauSachKH[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong].MuonNgayHomNay(this.dtToday);
+						this.lDSDauSachKH[Temp_ViTriDauSach].SoLuongTrongThuVien--;
+						this.lDSHopDongMuon[ViTriDocGia].SoLuongSachMuon++;
+						Console.WriteLine("Muon thanh cong");
 					}
 					else
 					{
-						Console.WriteLine(" Ma dau sach chua ton tai hoac nhap chua dung! ");
+						Console.WriteLine("Thu vien da het sach tua do");
 						return;
 					}
+				}
+				else
+				{
+					Console.WriteLine(" Ma dau sach chua ton tai hoac nhap chua dung! ");
+					return;
 				}
 			}
 			else
@@ -335,31 +361,31 @@ namespace QLTV
 								return;
 							}
 						}
-					}
-					int Temp_ViTriDauSach = KiemTraViTriSachGT(Temp_NhapMaTuaSach);
-					if (Temp_ViTriDauSach != -1)
+					}			
+				}
+				int Temp_ViTriDauSach = KiemTraViTriSachGT(Temp_NhapMaTuaSach);
+				if (Temp_ViTriDauSach != -1)
+				{
+					if (this.lDSDauSachGT[Temp_ViTriDauSach].SoLuongTrongThuVien > 0)
 					{
-						if (this.lDSDauSachGT[Temp_ViTriDauSach].SoLuongTrongThuVien > 0)
-						{
-							int Temp_ViTriSachRong = TimSachGTChuaDuocMuon(Temp_ViTriDauSach);
-							this.lDSHopDongMuon[ViTriDocGia].DSSachGTMuon.Add(this.lDSDauSachGT[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong]);
-							this.lDSDauSachGT[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong].MuonNgayHomNay(this.dtToday);
-							this.lDSDauSachGT[Temp_ViTriDauSach].SoLuongTrongThuVien--;
-							this.lDSHopDongMuon[ViTriDocGia].SoLuongSachMuon++;
-							Console.WriteLine("Muon thanh cong");
-							return;
-						}
-						else
-						{
-							Console.WriteLine("Thu vien da het sach tua do");
-							return;
-						}
+						int Temp_ViTriSachRong = TimSachGTChuaDuocMuon(Temp_ViTriDauSach);
+						this.lDSHopDongMuon[ViTriDocGia].DSSachGTMuon.Add(this.lDSDauSachGT[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong]);
+						this.lDSDauSachGT[Temp_ViTriDauSach].DSQuyenSach[Temp_ViTriSachRong].MuonNgayHomNay(this.dtToday);
+						this.lDSDauSachGT[Temp_ViTriDauSach].SoLuongTrongThuVien--;
+						this.lDSHopDongMuon[ViTriDocGia].SoLuongSachMuon++;
+						Console.WriteLine("Muon thanh cong");
+						return;
 					}
 					else
 					{
-						Console.WriteLine(" Ma dau sach chua ton tai ");
+						Console.WriteLine("Thu vien da het sach tua do");
 						return;
 					}
+				}
+				else
+				{
+					Console.WriteLine(" Ma dau sach chua ton tai ");
+					return;
 				}
 			}
 		}
@@ -783,14 +809,60 @@ namespace QLTV
 			int ViTriDauSach = KiemTraViTriSachKH(MaDauSach);
 			if (ViTriDauSach != -1)
 			{
+				Console.WriteLine("Thong tin dau sach ");
 				this.DSDauSachKH[ViTriDauSach].Xuat();
+				Console.Write("Ban co muon tim kiem sau hon thong tin 1 cuon sach thuoc dau sach do ? (0 la khong, 1 la co): ");
+				int Temp = Convert.ToInt32(Console.ReadLine());
+				if (Temp == 1)
+				{
+					Console.WriteLine(" Xin nhap ma quyen sach ");
+					int MaQuyen = Convert.ToInt32(Console.ReadLine());
+					for (int i = 0; i < this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Count; i++)
+					{
+						if (this.DSDauSachKH[ViTriDauSach].DSQuyenSach[i].MaQuyenSach == MaQuyen)
+						{
+							Console.WriteLine(" Thong tin chi tiet quyen sach la :");
+							this.DSDauSachKH[ViTriDauSach].DSQuyenSach[i].Xuat();
+							return;
+						}
+					}
+					Console.WriteLine("Khong ton tai quyen sach nao co ma trung voi ma ban nhap! ");
+					return;
+				}
+				if (Temp == 0)
+				{
+					return;
+				}
 			}
 			else
 			{
 				ViTriDauSach = KiemTraViTriSachGT(MaDauSach);
 				if (ViTriDauSach != -1)
 				{
+					Console.WriteLine("Thong tin dau sach: ");
 					this.DSDauSachKH[ViTriDauSach].Xuat();
+					Console.Write("Ban co muon tim kiem sau hon thong tin 1 cuon sach thuoc dau sach do ? (0 la khong, 1 la co): ");
+					int Temp = Convert.ToInt32(Console.ReadLine());
+					if (Temp == 1)
+					{
+						Console.WriteLine(" Xin nhap ma quyen sach ");
+						int MaQuyen = Convert.ToInt32(Console.ReadLine());
+						for (int i = 0; i < this.lDSDauSachGT[ViTriDauSach].DSQuyenSach.Count; i++)
+						{
+							if (this.DSDauSachGT[ViTriDauSach].DSQuyenSach[i].MaQuyenSach == MaQuyen)
+							{
+								Console.WriteLine(" Thong tin chi tiet quyen sach la :");
+								this.DSDauSachGT[ViTriDauSach].DSQuyenSach[i].Xuat();
+								return;
+							}
+						}
+						Console.WriteLine("Khong ton tai quyen sach nao co ma trung voi ma ban nhap! ");
+						return;
+					}
+					if (Temp == 0)
+					{
+						return;
+					}
 				}
 				else
 				{
@@ -1022,9 +1094,143 @@ namespace QLTV
 			Console.WriteLine(" So sach muon la: " + sachmuon);
 			Console.WriteLine(" So sach nam trong thu vien la: " + (tongsach - sachmuon));
 			float PhanTramMuon = ((sachmuon * 100) / tongsach);
-			Console.WriteLine("Phan tram cua so sach muon so voi tong so sach la: "+PhanTramMuon);
+			Console.WriteLine("Phan tram cua so sach muon so voi tong so sach la: "+PhanTramMuon+ "%");
 			PhanTramMuon = 100 - PhanTramMuon;
-			Console.WriteLine("Phan tram cua so sach nam torng thu vien so voi tong so sach la: " + PhanTramMuon);
+			Console.WriteLine("Phan tram cua so sach nam torng thu vien so voi tong so sach la: " + PhanTramMuon+"%");
+		}
+		public void SortIncreasingTheDateOfCustomer(int left,int right)
+		{
+			int i = left;
+			int j = right;
+			DocGia Pivot = this.DSDocGia[(i + j ) / 2];
+			while (i <= j)
+			{
+				while(this.DSDocGia[i].NgayHetHanThe < Pivot.NgayHetHanThe)
+				{
+					i++;
+				}
+				while (this.DSDocGia[j].NgayHetHanThe > Pivot.NgayHetHanThe)
+				{
+					j--;
+				}
+				if (i <= j)
+				{
+					DocGia Temp = this.DSDocGia[i];
+					this.DSDocGia[i] = this.DSDocGia[j];
+					this.DSDocGia[j] = Temp;
+					i++;
+					j--;
+				}
+			}
+			if (left < j)
+			{
+				SortIncreasingTheDateOfCustomer(left, j);
+			}
+			if (i < right)
+			{
+				SortIncreasingTheDateOfCustomer(i, right);
+			}
+		}
+		public void SapXepDocGiaTheoSoSachMuonGiamDan(int n)
+		{
+			int flag = 1;
+			int j = 0;
+			while (flag !=0 )
+			{
+				flag = 0;
+				j++;
+				for (int i = 0; i < n - j; i++)
+				{
+					if (this.DSHopDongMuon[i].SoLuongSachMuon > DSHopDongMuon[i + 1].SoLuongSachMuon)
+					{
+						HopDongMuon Temp = this.DSHopDongMuon[i];
+						this.DSHopDongMuon[i] = this.DSHopDongMuon[i + 1];
+						this.DSHopDongMuon[i + 1] = Temp;
+						flag = 1;
+					}
+				}
+			}
+			for (int i = 0; i < this.DSHopDongMuon.Count; i++)
+			{
+				this.DSDocGia[i] = this.DSHopDongMuon[i].NguoiMuon;
+				this.lDSDocGia[i].Xuat();
+				Console.WriteLine(" Tong so sach muon la: "+this.DSHopDongMuon[i].SoLuongSachMuon+"\n");
+			}
+		}
+		public void SapXepDanhSachSachGTTheoGiaTangDan()
+		{
+			List<QuyenSachGiaoTrinh> List_Temp = new List<QuyenSachGiaoTrinh>();
+			int i = 0;
+			while (i != this.DSDauSachGT.Count)
+			{
+				var emty = this.DSDauSachGT[i].DSQuyenSach;		   
+				foreach (var c in emty)
+				{
+					List_Temp.Add(c);
+				}
+				i++;
+			}
+			for (int j = 1; j < List_Temp.Count; j++)
+			{
+				QuyenSachGiaoTrinh x = List_Temp[j];
+				int h = j - 1;
+				while (h > 0 && List_Temp[i].ThanhTien > x.ThanhTien)
+				{
+					List_Temp[h + 1] = List_Temp[h];
+					h--;
+				}
+				List_Temp[h+1] = x;
+			}
+			foreach (var c in List_Temp)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
+		}
+		public void SapXepDanhSachSachKHTheoGiaGiamDan()
+		{
+			List<QuyenSachKhoaHoc> List_Temp = new List<QuyenSachKhoaHoc>();
+			int i = 0;
+			while (i != this.DSDauSachKH.Count)
+			{
+				var emty = this.DSDauSachKH[i].DSQuyenSach;
+				foreach (var c in emty)
+				{
+					List_Temp.Add(c);
+				}
+				i++;
+			}
+			for ( i = 0; i < List_Temp.Count-1; i++)
+			{
+				int MinPos = i;
+				for (int j = i + 1; j < List_Temp.Count; j++)
+				{
+					if (List_Temp[j].ThanhTien > List_Temp[MinPos].ThanhTien)
+					{
+						MinPos = j;
+					}
+				}
+				if(MinPos!=i)
+				{
+					QuyenSachKhoaHoc Temp = List_Temp[i];
+					List_Temp[i] = List_Temp[MinPos];
+					List_Temp[MinPos] = Temp;
+				}
+			}
+			foreach (var c in List_Temp)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
+		}
+		public void XuatTatCaNhanVien()
+		{
+			Console.WriteLine("\n");
+			foreach (var c in this.lDSNhanVien)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
 		}
 	}
 }

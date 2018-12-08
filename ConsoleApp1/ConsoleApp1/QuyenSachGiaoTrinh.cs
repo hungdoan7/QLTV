@@ -40,12 +40,12 @@ namespace QLTV
 		public QuyenSachGiaoTrinh(string MaDauSach, string Tua, string NXB, string TacGia, double Gia, string BoMon, int TinhTrang,int MaQuyenSach) : base(MaDauSach, Tua, NXB, TacGia, Gia,BoMon)
 		{
 			this.sMaQuyenSach = MaQuyenSach;
-			this.iTinhTrang = TinhTrang;
-			this.XacDinhThue();
+			this.iTinhTrang = TinhTrang;	
 			this.bDaMuonHayChua = true;
 			this.dtNgayMuon = new Date();
 			this.dtNgayPhaiTra = new Date();
-			TinhThanhTien();
+			this.XacDinhThue();
+			this.TinhThanhTien();
 		}
 		public override void Nhap()
 		{
@@ -67,24 +67,25 @@ namespace QLTV
 			if (this.bDaMuonHayChua == false)
 			{
 				Console.WriteLine(" Da duoc muon! ");
-				Console.WriteLine("Ngay het duoc muon : " + this.dtNgayMuon.iNgay + "/" + this.dtNgayMuon.iThang + "/" + this.dtNgayMuon.iNam);
-				Console.WriteLine("Ngay het phai tra : " + this.dtNgayPhaiTra.iNgay + "/" + this.dtNgayPhaiTra.iThang + "/" + this.dtNgayPhaiTra.iNam);
+				Console.WriteLine("Ngay het duoc muon : " + this.dtNgayMuon.Ngay + "/" + this.dtNgayMuon.Thang + "/" + this.dtNgayMuon.Nam);
+				Console.WriteLine("Ngay het phai tra : " + this.dtNgayPhaiTra.Ngay + "/" + this.dtNgayPhaiTra.Thang + "/" + this.dtNgayPhaiTra.Nam);
 			}
 			else
 			{
 				Console.WriteLine(" Nam trong thu vien!  ");
 			}
-			Console.Write(" Ma quyen sach: " + this.sMaQuyenSach);
+			Console.WriteLine(" Ma quyen sach: " + this.sMaQuyenSach);
+			Console.WriteLine(" Thanh tien: "+this.dThanhTien);
 		}
 		public override void TinhThanhTien()
 		{
 			if (this.iTinhTrang == 0)
 			{
-				this.dThanhTien = (this.dGia / 2) + (this.dThue*this.dGia);
+				this.dThanhTien = (this.dGia / 2) + (this.dThue*this.dGia/100);
 			}
 			else
 			{
-				this.dThanhTien = this.dGia + (this.dThue*this.dGia);
+				this.dThanhTien = this.dGia + (this.dThue*this.dGia/100);
 			}
 		}
 		public void MuonNgayHomNay(Date Today)

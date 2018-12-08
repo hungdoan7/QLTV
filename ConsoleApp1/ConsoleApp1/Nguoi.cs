@@ -9,10 +9,10 @@ namespace QLTV
 	 interface DacTrungDocGia
 	{
 		void GiaHanThe(Date Today);
-		void NapThemTien(double Tien);
+		void Tien(double Tien);
 	    void DangKyTaiKhoanMoi(Date Today);
 	}
-	class Nguoi
+	abstract class Nguoi
     {
 		protected string sHoTen;	
         protected string sDiaChi;
@@ -68,18 +68,19 @@ namespace QLTV
 			Console.Write("SDT: ");
 			this.sSDT = Console.ReadLine();
 			Console.Write("Ngay sinh: ");
-			this.dtNgaySinh.iNgay = Convert.ToInt32(Console.ReadLine());
+			this.dtNgaySinh.Ngay = Convert.ToInt32(Console.ReadLine());
 			Console.Write("Thang sinh: ");
-			this.dtNgaySinh.iThang = Convert.ToInt32(Console.ReadLine());
+			this.dtNgaySinh.Thang = Convert.ToInt32(Console.ReadLine());
 			Console.Write("Nam sinh: ");
-			this.dtNgaySinh.iNam = Convert.ToInt32(Console.ReadLine());
+			this.dtNgaySinh.Nam = Convert.ToInt32(Console.ReadLine());
 		}
         public virtual void Xuat()
         {
             Console.WriteLine("Ho Ten: " + this.sHoTen);
             Console.WriteLine("Dia Chi: " + this.sDiaChi);
             Console.WriteLine("SDT: " + this.sSDT);
-            Console.WriteLine("Ngay Sinh: " + this.dtNgaySinh.iNgay+"/"+this.dtNgaySinh.iThang+"/"+this.dtNgaySinh.iNam+" ");
+            Console.WriteLine("Ngay Sinh: " + this.dtNgaySinh.Ngay+"/"+this.dtNgaySinh.Thang+"/"+this.dtNgaySinh.Nam+" ");
         }
+		public abstract void Tien(double a);
     }
 }
