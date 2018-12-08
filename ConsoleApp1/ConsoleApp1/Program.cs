@@ -417,6 +417,24 @@ namespace QLTV
 						{
 							DanhSach ds = new DanhSach(thuvien.XuatTatCaNhanVien);
 							ds();
+							Console.WriteLine(" Nhap them nhan vien(0 la thoat, 1 la nhap): ");
+							int ChonChonChon = Convert.ToInt32(Console.ReadLine());
+							switch (ChonChonChon)
+							{
+								case 0:
+									{
+										break;
+									}
+								case 1:
+									{
+										thuvien.DangKyNhanVienMoi();
+										break;
+									}
+								default:
+									{
+										break;
+									}
+							}
 							break;
 						}
 					default:

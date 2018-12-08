@@ -49,7 +49,7 @@ namespace QLTV
 		}
 		public Nguoi()
 		{
-
+			this.dtNgaySinh = new Date();
 		}
 		public Nguoi(string HoTen, string DiaChi, string SDT, int NgaySinh, int ThangSinh,int NamSinh)
         {

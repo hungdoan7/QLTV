@@ -51,9 +51,9 @@ namespace QLTV
 		{
 			NhapNgayHomNay();
 
-			NhanVien nv = new NhanVien("NV01", "Doan Van Nga", "HCM", "0123432534", 12, 3, 1993, 0, 1500000);
+			NhanVien nv = new NhanVien(1, "Doan Van Nga", "HCM", "0123432534", 12, 3, 1993, 0, 1500000,25);
 			this.lDSNhanVien.Add(nv);
-			nv = new NhanVien("NV02", "Nguyen Thi Tuyet Mai", "HCM", "01234356594", 18, 5, 1994, 1, 1500000);
+			nv = new NhanVien(2, "Nguyen Thi Tuyet Mai", "HCM", "01234356594", 18, 5, 1994, 1, 1500000,26);
 			this.lDSNhanVien.Add(nv);
 
 
@@ -112,13 +112,13 @@ namespace QLTV
 			Temp3.SoLuongTrongThuVien++;
 			this.lDSDauSachGT.Add(Temp3);
 
-			DocGia Temp5 = new DocGia("01", "Nguyen Huynh Anh Truc ", "HCM", "0167723899", 1, 1, 1999, "Truc@mail", 10, 12, 2018, 100000);
+			DocGia Temp5 = new DocGia(1, "Nguyen Huynh Anh Truc ", "HCM", "0167723899", 1, 1, 1999, "Truc@mail", 10, 12, 2018, 100000);
 			this.lDSDocGia.Add(Temp5);
-			Temp5 = new DocGia("02", "Nguyen Minh Thanh ", "HCM", "01645513518", 1, 4, 1999, "Thanh@mail", 25, 11, 2018, 120000);
+			Temp5 = new DocGia(2, "Nguyen Minh Thanh ", "HCM", "01645513518", 1, 4, 1999, "Thanh@mail", 25, 11, 2018, 120000);
 			this.lDSDocGia.Add(Temp5);
-			Temp5 = new DocGia("03", "Nguyen Khac Hoang Phi ", "VT", "01645513518", 1, 3, 1999, "Phi@mail", 30, 12, 2018, 150000);
+			Temp5 = new DocGia(3, "Nguyen Khac Hoang Phi ", "VT", "01645513518", 1, 3, 1999, "Phi@mail", 30, 12, 2018, 150000);
 			this.lDSDocGia.Add(Temp5);
-			Temp5 = new DocGia("04", "Doan Quoc Hung ", "HN", "01628953485", 24, 7, 1999, "Hung@mail", 6, 12, 2018, 120000);
+			Temp5 = new DocGia(4, "Doan Quoc Hung ", "HN", "01628953485", 24, 7, 1999, "Hung@mail", 6, 12, 2018, 120000);
 			this.lDSDocGia.Add(Temp5);
 			
 		}
@@ -153,7 +153,7 @@ namespace QLTV
 			Temp.DSSachGTMuon.Add(this.DSDauSachGT[1].DSQuyenSach[1]);
 			Temp.SoLuongSachMuon++;
 			this.DSDauSachGT[1].DSQuyenSach[1].DaMuonHayChua = false;
-			this.lDSDauSachGT[1].DSQuyenSach[1].NgayMuon = (Temp.NguoiMuon.NgayHetHanThe - 130);
+			this.lDSDauSachGT[1].DSQuyenSach[1].NgayMuon = (Temp.NguoiMuon.NgayHetHanThe - 170);
 			this.lDSDauSachGT[1].DSQuyenSach[1].XDNgayTra();
 			this.DSDauSachGT[1].SoLuongTrongThuVien--;
 
@@ -508,18 +508,25 @@ namespace QLTV
 		{
 			DocGia NguoiDangKy = new DocGia();
 			NguoiDangKy.Nhap();
+			NguoiDangKy.MaDG = this.DSDocGia[this.DSDocGia.Count - 1].MaDG + 1; 
 			NguoiDangKy.DangKyTaiKhoanMoi(Today);
 			this.lDSDocGia.Add(NguoiDangKy);
 			HopDongMuon Temp_HD = new HopDongMuon();
 			Temp_HD.NguoiMuon = NguoiDangKy;
 			this.lDSHopDongMuon.Add(Temp_HD);
 		}
-
+		public void DangKyNhanVienMoi()
+		{
+			NhanVien NguoiDangKy = new NhanVien();
+			NguoiDangKy.Nhap();
+			NguoiDangKy.MaNV = (this.DSDocGia[this.DSNhanVien.Count - 1].MaDG + 1);
+			this.lDSNhanVien.Add(NguoiDangKy);
+		}
 		public int KiemTraViTriDocGiaTrongListHD(string NhapVao)
 		{
 			for (int i = 0; i < this.lDSHopDongMuon.Count; i++)
 			{
-				if (this.lDSHopDongMuon[i].NguoiMuon.HoTen == NhapVao || this.lDSHopDongMuon[i].NguoiMuon.MaDG == NhapVao)
+				if (this.lDSHopDongMuon[i].NguoiMuon.HoTen == NhapVao || this.lDSHopDongMuon[i].NguoiMuon.MaDG == Convert.ToInt32(NhapVao))
 				{
 					return i;
 				}

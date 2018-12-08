@@ -38,9 +38,9 @@ namespace QLTV
 			get { return this.iNam; }
 			set
 			{
-				if (value < 2018 )
+				if (value < 1900 )
 					throw new ArgumentOutOfRangeException
-					(" must be 2018");
+					(" must be > 1900");
 				this.iThang = value;
 			}
 		}

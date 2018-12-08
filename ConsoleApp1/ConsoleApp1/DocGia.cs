@@ -8,15 +8,19 @@ namespace QLTV
 {
     class DocGia : Nguoi, DacTrungDocGia
     {
-        private string sMaDG;
+        private int iMaDG;
         private string sEmail;
         private Date dtNgayHetHanThe;
         private double dTaiKhoan;
-		public string MaDG
+		public int MaDG
 		{
 			get
 			{
-				return this.sMaDG;
+				return this.iMaDG;
+			}
+			set
+			{
+				this.iMaDG = value;
 			}
 		}
 		public string Email
@@ -46,9 +50,9 @@ namespace QLTV
         {
 
         }
-        public DocGia(string MaDG, string HoTen, string DiaChi, string SDT, int NgaySinh,int ThangSinh, int NamSinh, string Email, int NgayHH, int ThangHH, int NamHH, double TaiKhoan) : base(HoTen, DiaChi, SDT, NgaySinh,ThangSinh,NamSinh)
+        public DocGia(int MaDG, string HoTen, string DiaChi, string SDT, int NgaySinh,int ThangSinh, int NamSinh, string Email, int NgayHH, int ThangHH, int NamHH, double TaiKhoan) : base(HoTen, DiaChi, SDT, NgaySinh,ThangSinh,NamSinh)
         {
-            this.sMaDG = MaDG;
+            this.iMaDG = MaDG;
             this.sEmail = Email;
             this.dtNgayHetHanThe = new Date();
             this.dtNgayHetHanThe.Ngay = NgayHH;
@@ -65,7 +69,7 @@ namespace QLTV
         public override void Xuat()
         {
             base.Xuat();
-            Console.WriteLine("Ma doc gia: " + this.sMaDG);
+            Console.WriteLine("Ma doc gia: " + this.iMaDG);
             Console.WriteLine("Email: " + this.sEmail);
             Console.WriteLine("Ngay het han the: " + this.dtNgayHetHanThe.Ngay+"/"+this.dtNgayHetHanThe.Thang+"/"+this.dtNgayHetHanThe.Nam);
             Console.WriteLine("So du tai khoan: " + this.dTaiKhoan);
