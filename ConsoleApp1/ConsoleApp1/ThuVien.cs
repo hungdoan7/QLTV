@@ -110,6 +110,7 @@ namespace QLTV
 			this.lDSDocGia.Add(Temp5);
 			Temp5 = new DocGia("04", "Doan Quoc Hung ", "HN", "01628953485", 24, 7, 1999, "Hung@mail", 6, 12, 2018, 120000);
 			this.lDSDocGia.Add(Temp5);
+			
 		}
 
 		public void NhapHDMuon()
@@ -782,18 +783,18 @@ namespace QLTV
 			int ViTriDauSach = KiemTraViTriSachKH(MaDauSach);
 			if (ViTriDauSach != -1)
 			{
-
+				this.DSDauSachKH[ViTriDauSach].Xuat();
 			}
 			else
 			{
 				ViTriDauSach = KiemTraViTriSachGT(MaDauSach);
 				if (ViTriDauSach != -1)
 				{
-
+					this.DSDauSachKH[ViTriDauSach].Xuat();
 				}
 				else
 				{
-
+					Console.WriteLine("Khong ton tai ma sach do trong thu vien");
 				}
 			}
 		}
@@ -817,21 +818,213 @@ namespace QLTV
 				Console.WriteLine("\n");
 			}
 		}
-		public void XuatRaTatCaSachKH()
+		public void XuatRaTatCaSachKHDaDuocMuon()
 		{
 			int i = 0;
 			while (i!=this.DSDauSachKH.Count)
 			{
-				var emty = from c in this.DSDauSachKH[i].DSQuyenSach
-						   
-						   select c;
-				foreach (QuyenSachKhoaHoc c in emty)
+				var emty = this.DSDauSachKH[i].DSQuyenSach.Where(x => x.DaMuonHayChua == false);
+				foreach (var c in emty)
 				{
 					c.Xuat();
 					Console.WriteLine("\n");
 				}
 				i++;
 			}
+		}
+		public void XuatRaTatCaSachGTDaDuocMuon()
+		{
+			int i = 0;
+			while (i != this.DSDauSachGT.Count)
+			{
+				var emty = this.DSDauSachGT[i].DSQuyenSach.Where(x => x.DaMuonHayChua == false);
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+		}
+		public void XuatRaTatCaSachKHNamTrongThuVien()
+		{
+			int i = 0;
+			while (i != this.DSDauSachKH.Count)
+			{
+				var emty = this.DSDauSachKH[i].DSQuyenSach.Where(x => x.DaMuonHayChua == true);
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+		}
+		public void XuatRaTatCaSachGTNamTrongThuVien()
+		{
+			int i = 0;
+			while (i != this.DSDauSachGT.Count)
+			{
+				var emty = this.DSDauSachGT[i].DSQuyenSach.Where(x => x.DaMuonHayChua == true);
+			
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+		}
+		public void XuatRaDanhSachDocGia()
+		{
+			var emty = from c in this.DSDocGia
+					   select c;
+			foreach (var c in emty)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
+		}
+		public void DocGiaMuonNhieuNhat()
+		{
+			XacDinh xd = new XacDinh(this.XacDinhSLMuonNhieuNhat);
+			var emty = from c in this.lDSHopDongMuon
+					   where c.SoLuongSachMuon == xd()
+					   select c.NguoiMuon;
+			foreach (var c in emty)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
+		}
+		public int XacDinhSLMuonNhieuNhat()
+		{
+			int max = this.lDSHopDongMuon[0].SoLuongSachMuon;
+			for (int i = 0; i < this.lDSHopDongMuon.Count; i++)
+			{
+				if (this.lDSHopDongMuon[i].SoLuongSachMuon > max)
+				{
+					max = this.lDSHopDongMuon[i].SoLuongSachMuon;
+				}
+			}
+			return max;
+		}
+		public void SachLonHonTienCuThe(double Tien)
+		{
+			int i = 0;
+			while (i != this.DSDauSachGT.Count)
+			{
+				var emty = this.DSDauSachGT[i].DSQuyenSach.Where(x => x.ThanhTien > Tien);
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+			i = 0;
+			while (i != this.DSDauSachKH.Count)
+			{
+				var emty = this.DSDauSachKH[i].DSQuyenSach.Where(x => x.ThanhTien > Tien);
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+		}
+		public void SachLonSapToiHanTra()
+		{
+			int i = 0;
+			while (i != this.DSDauSachGT.Count)
+			{
+				var emty = this.DSDauSachGT[i].DSQuyenSach.Where(x => x.DaMuonHayChua == false && x.NgayPhaiTra > this.dtToday && x.NgayPhaiTra - this.dtToday < 30);
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+			i = 0;
+			while (i != this.DSDauSachKH.Count)
+			{
+				var emty = this.DSDauSachKH[i].DSQuyenSach.Where(x => x.DaMuonHayChua == false && x.NgayPhaiTra > this.dtToday && x.NgayPhaiTra -this.dtToday < 30);
+				foreach (var c in emty)
+				{
+					c.Xuat();
+					Console.WriteLine("\n");
+				}
+				i++;
+			}
+		}
+
+		public void DocGiaSapHetHanThe()
+		{
+			var emty = this.DSDocGia.Where(x => x.NgayHetHanThe < this.dtToday );					 
+			foreach (var c in emty)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
+			emty = this.DSDocGia.Where(x => x.NgayHetHanThe > this.dtToday && x.NgayHetHanThe-this.dtToday < 30);
+			foreach (var c in emty)
+			{
+				c.Xuat();
+				Console.WriteLine("\n");
+			}
+		}
+		public void ThongKeSoSach()
+		{
+			int tongsach = 0;
+			int sachmuon = 0;
+			for (int i = 0; i < this.lDSDauSachGT.Count; i++)
+			{
+				for (int j = 0; j < this.lDSDauSachGT[i].DSQuyenSach.Count; j++)
+				{
+					if (this.lDSDauSachGT[i].DSQuyenSach[j].DaMuonHayChua == false)
+					{
+						sachmuon++;
+					}
+					tongsach++;
+				}
+			}
+			for (int i = 0; i < this.lDSDauSachKH.Count; i++)
+			{
+				for (int j = 0; j < this.lDSDauSachKH[i].DSQuyenSach.Count; j++)
+				{
+					if (this.lDSDauSachKH[i].DSQuyenSach[j].DaMuonHayChua == false)
+					{
+						sachmuon++;
+					}
+					tongsach++;
+				}
+			}
+			//int i ;
+			//IEnumerable<QuyenSachGiaoTrinh> emty1;
+			//IEnumerable<QuyenSachKhoaHoc> emty2;
+			//for ( i=0; i < this.lDSDauSachGT.Count; i++)
+			//{
+			//	emty1 = from c in this.DSDauSachGT[i].DSQuyenSach
+			//				select c;
+			//}
+			//for (i = 0; i < this.lDSDauSachKH.Count; i++)
+			//{
+			//	 emty2 = from c in this.DSDauSachKH[i].DSQuyenSach
+			//				select c;
+			//}
+			//foreach (var c in emty1)
+			//{
+			//	if(c)
+			//}
+			Console.WriteLine(" Tong so sach la: "+tongsach);
+			Console.WriteLine(" So sach muon la: " + sachmuon);
+			Console.WriteLine(" So sach nam trong thu vien la: " + (tongsach - sachmuon));
+			float PhanTramMuon = ((sachmuon * 100) / tongsach);
+			Console.WriteLine("Phan tram cua so sach muon so voi tong so sach la: "+PhanTramMuon);
+			PhanTramMuon = 100 - PhanTramMuon;
+			Console.WriteLine("Phan tram cua so sach nam torng thu vien so voi tong so sach la: " + PhanTramMuon);
 		}
 	}
 }

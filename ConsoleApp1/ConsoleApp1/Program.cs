@@ -19,14 +19,15 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
+	public delegate int XacDinh();
 	public delegate int KiemTra(String NhapVao);
-	public delegate void DangKy(Date Today);
+	public delegate void Ngay(Date Today);
 	public delegate Date XacDinhNgay();
 	public delegate void CongViec(int ViTri);
-	public delegate void NapTien(double Tien);
+	public delegate void Tien(double Tien);
 	public delegate void TraSach(int a, string b, int c);
 	public delegate void Them(String a);
-
+	public delegate void DanhSach();
 	class Program
 	{
 		static void Main(string[] args)
@@ -35,13 +36,15 @@ namespace QLTV
 			ThuVien thuvien = new ThuVien();
 			thuvien.NhapThuVien();
 			thuvien.NhapHDMuon();
-			//Console.WriteLine("Cap nhat: ");
-			thuvien.XacDinhLai();
-			//Console.Write("\n\n");
+			
 			int Temp;
 			do
 			{
-				Console.WriteLine("Chuong trinh quan ly thu vien ");
+				Console.WriteLine("Cap nhat lai tinh hinh thu vien ");
+				Console.Write("\n");
+				thuvien.XacDinhLai();
+				Console.Write("\n");
+				//Console.WriteLine("Chuong trinh quan ly thu vien ");
 				Console.WriteLine("Cac tuy chon: ");
 				Console.WriteLine(" 1.Dang nhap tai khoan doc gia va su dung ");
 				Console.WriteLine(" 2.Dang ky tai khoan doc gia moi ");
@@ -113,7 +116,7 @@ namespace QLTV
 														{
 															Console.WriteLine(" Nhap so tien can nap: ");
 															double Tien = Convert.ToDouble(Console.ReadLine());
-															NapTien nt = new NapTien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.NapThemTien);
+															Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.NapThemTien);
 															nt(Tien);
 															break;
 														}
@@ -149,7 +152,7 @@ namespace QLTV
 										{
 											Console.WriteLine(" Nhap so tien can nap: ");
 											double Tien = Convert.ToDouble(Console.ReadLine());
-											NapTien nt = new NapTien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.NapThemTien);
+											Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.NapThemTien);
 											nt(Tien);
 											break;
 										}
@@ -187,7 +190,7 @@ namespace QLTV
 										{
 											XacDinhNgay xd = new XacDinhNgay(thuvien.XacDinhToday);
 											Date Today_Temp = xd();
-											DangKy dk = new DangKy(thuvien.DangKyTaiKhoanMoi);
+											Ngay dk = new Ngay(thuvien.DangKyTaiKhoanMoi);
 											dk(Today_Temp);
 											break;
 										}
@@ -208,7 +211,7 @@ namespace QLTV
 						{
 							XacDinhNgay xd = new XacDinhNgay(thuvien.XacDinhToday);
 							Date Today_Temp = xd();
-							DangKy dk = new DangKy(thuvien.DangKyTaiKhoanMoi);
+							Ngay dk = new Ngay(thuvien.DangKyTaiKhoanMoi);
 							dk(Today_Temp);
 							break;
 						}
@@ -220,7 +223,99 @@ namespace QLTV
 						}
 					case 4:
 						{
-							thuvien.XuatRaTatCaSachKH();
+							int ChonChon;
+							Console.WriteLine("Cac lua chon: ");
+							Console.WriteLine(" 1.Danh sach sach khoa hoc dang trong tinh trang bi muon ");
+							Console.WriteLine(" 2.Danh sach khoa hoc dang nam trong thu vien ");
+							Console.WriteLine(" 3.Danh sach giao trinh dang trong tinh trang bi muon ");
+							Console.WriteLine(" 4.Danh sach giao trinh dang nam trong thu vien ");
+							Console.WriteLine(" 5.Danh sach doc gia ");
+							Console.WriteLine(" 6.Danh sach sach co gia tri lon hon 1 so tien cu the ");
+							Console.WriteLine(" 7.Danh sach nhung cuon sach sap toi han tra");
+							Console.WriteLine(" 8.Danh sach nhung doc gia sap het han the ");
+							Console.WriteLine(" 9.Danh sach nhung doc gia muon nhieu sach nhat ");
+							Console.WriteLine(" 10.Thong ke so luong sach duoc muon va phan tram so voi so sach ban dau, cung nhu nguoc lai la voi so sach con nam trong thu vien ");
+							Console.WriteLine(" 11.Sap xep danh sach doc gia theo thu tu giam dan ngay het han the ");
+							Console.WriteLine(" 12.Sap xep sach theo thu tu tang dan tien ");
+							Console.WriteLine(" 13.Sap xep danh sach doc gia theo thu tu giam dan tong so sach dang muon  ");
+							
+							Console.Write(" Chon:  ");
+							ChonChon = Convert.ToInt32(Console.ReadLine());
+							switch (ChonChon)
+							{
+								case 1:
+									{
+										Console.WriteLine("/n Danh sach sach khoa hoc dang trong tinh trang bi muon:");
+										DanhSach ds = new DanhSach(thuvien.XuatRaTatCaSachKHDaDuocMuon);
+										ds();
+										break;
+									}
+								case 2:
+									{
+										Console.WriteLine("/n Danh sach sach khoa hoc dang nam trong thu vien:");
+										DanhSach ds = new DanhSach(thuvien.XuatRaTatCaSachKHNamTrongThuVien);
+										ds();
+										break;
+									}
+								case 3:
+									{
+										Console.WriteLine("/n Danh sach sach giao trinh dang trong tinh trang bi muon:");
+										DanhSach ds = new DanhSach(thuvien.XuatRaTatCaSachGTDaDuocMuon);
+										ds();
+										break;
+									}
+								case 4:
+									{
+										Console.WriteLine("/n Danh sach sach giao trinh dang nam trong thu vien:");
+										DanhSach ds = new DanhSach(thuvien.XuatRaTatCaSachGTNamTrongThuVien);
+										ds();
+										break;
+									}
+								case 5:
+									{
+										Console.WriteLine("/n Danh sach sach doc gia trong thu vien:");
+										DanhSach ds = new DanhSach(thuvien.XuatRaDanhSachDocGia);
+										ds();
+										break;
+									}
+								case 6:
+									{
+										double tien;
+										Console.Write("Hay nhap vao so tien: ");
+										tien = Convert.ToDouble(Console.ReadLine());
+										Tien t = new Tien(thuvien.SachLonHonTienCuThe);
+										t(tien);
+										break;
+									}
+								case 7:
+									{
+										DanhSach ds = new DanhSach(thuvien.SachLonSapToiHanTra);
+										ds();
+										break;
+									}
+								case 8:
+									{
+										DanhSach ds = new DanhSach(thuvien.DocGiaSapHetHanThe);
+										ds();
+										break;
+									}
+								case 9:
+									{
+										DanhSach ds = new DanhSach(thuvien.DocGiaMuonNhieuNhat);
+										ds();
+										break;
+									}
+								case 10:
+									{
+										
+										break;
+									}
+								case 11:
+									{
+										break;
+									}
+							}
+							
 							break;
 						}
 					case 5:
@@ -254,7 +349,6 @@ namespace QLTV
 													Them th = new Them(thuvien.ThemSachGT);
 													th(Ma_Temp);
 													break;
-
 												}
 											default:
 												{

@@ -69,12 +69,12 @@ namespace QLTV
 			if (Today < this.dtNgayHetHanThe)
 			{
 				this.dtNgayHetHanThe += 180;
-				this.dTaiKhoan = this.dTaiKhoan - 30000;
+				this.dTaiKhoan = this.dTaiKhoan - 50000;
 			}
 			else
 			{
 				this.dtNgayHetHanThe = Today + 180;
-				this.dTaiKhoan = this.dTaiKhoan - 20000;
+				this.dTaiKhoan = this.dTaiKhoan - 50000;
 			}
 		}
 		public void NapThemTien(double Tien)

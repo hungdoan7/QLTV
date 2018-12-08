@@ -12,7 +12,7 @@ namespace QLTV
 		void NapThemTien(double Tien);
 	    void DangKyTaiKhoanMoi(Date Today);
 	}
-	public class Nguoi
+	class Nguoi
     {
 		protected string sHoTen;	
         protected string sDiaChi;

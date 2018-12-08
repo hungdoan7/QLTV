@@ -67,6 +67,8 @@ namespace QLTV
 			if (this.bDaMuonHayChua == false)
 			{
 				Console.WriteLine(" Da duoc muon! ");
+				Console.WriteLine("Ngay het duoc muon : " + this.dtNgayMuon.iNgay + "/" + this.dtNgayMuon.iThang + "/" + this.dtNgayMuon.iNam);
+				Console.WriteLine("Ngay het phai tra : " + this.dtNgayPhaiTra.iNgay + "/" + this.dtNgayPhaiTra.iThang + "/" + this.dtNgayPhaiTra.iNam);
 			}
 			else
 			{

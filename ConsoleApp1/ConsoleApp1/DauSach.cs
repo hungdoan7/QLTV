@@ -12,7 +12,7 @@ namespace QLTV
 		void TraSach();
 		void XDNgayTra();
 	}
-    public abstract class DauSach
+    abstract class DauSach
     { 
         protected string sMaDauSach;
         protected string sTua;
@@ -25,8 +25,7 @@ namespace QLTV
 
 		public string MaDauSach
 		{
-			get { return this.sMaDauSach; }
-			
+			get { return this.sMaDauSach; }			
 		}
 		public string Tua
 		{
