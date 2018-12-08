@@ -35,7 +35,6 @@ namespace QLTV
 		}
 		public void NhapNgayHomNay()
 		{
-			this.dtToday = new Date();
 			Console.WriteLine("Vui long nhap vao ngay hom nay: ");
 			Console.Write("Ngay: ");
 
@@ -400,7 +399,7 @@ namespace QLTV
 							{
 								if (this.lDSDauSachGT[Temp].DSQuyenSach[c].MaQuyenSach == this.lDSHopDongMuon[a].DSSachGTMuon[b].MaQuyenSach)
 								{
-									//Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + "\n");
+									Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + "\n");
 									this.lDSDauSachGT[a].DSQuyenSach.Remove(this.lDSHopDongMuon[a].DSSachGTMuon[b]);
 									this.lDSDauSachGT[a].SoLuongTrongThuVien--;
 									this.lDSHopDongMuon[a].DSSachGTMuon.Remove(this.lDSHopDongMuon[a].DSSachGTMuon[b]);
@@ -411,7 +410,7 @@ namespace QLTV
 						}
 						else
 						{
-							//Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + " sap toi han tra\n");
+							Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + " sap toi han tra\n");
 						}
 					}
 				}
@@ -428,7 +427,7 @@ namespace QLTV
 							{
 								if (this.lDSDauSachKH[Temp].DSQuyenSach[c].MaQuyenSach == this.lDSHopDongMuon[a].DSSachKHMuon[b].MaQuyenSach)
 								{
-									//Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + "\n");
+									Console.Write("doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + "\n");
 									this.lDSDauSachKH[a].DSQuyenSach.Remove(this.lDSHopDongMuon[a].DSSachKHMuon[b]);
 									this.lDSDauSachKH[a].SoLuongTrongThuVien--;
 									this.lDSHopDongMuon[a].DSSachKHMuon.Remove(this.lDSHopDongMuon[a].DSSachKHMuon[b]);
@@ -439,7 +438,7 @@ namespace QLTV
 						}
 						else
 						{
-							//Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + " sap toi han tra\n");
+							Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + " sap toi han tra\n");
 						}
 					}
 				}

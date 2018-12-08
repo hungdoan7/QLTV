@@ -16,10 +16,11 @@ namespace QLTV
 			get { return this.iNgay; }
 			set
 			{
-				if(value < 0||value>30)
-				throw new ArgumentOutOfRangeException
-				(" must be between 1 and 30");
-				this.iNgay = value;
+				if (value < 0 || value > 30)
+					throw new ArgumentOutOfRangeException
+					(" must be between 1 and 30");
+				else
+					this.iNgay = value;
 			}
 		}
 		public int Thang
@@ -27,10 +28,11 @@ namespace QLTV
 			get { return this.iThang; }
 			set
 			{
-				if (value < 0 || value > 30)
+				if (value < 0 || value > 12)
 					throw new ArgumentOutOfRangeException
 					(" must be between 1 and 12");
-				this.iThang = value;
+				else
+					this.iThang = value;
 			}
 		}
 		public int Nam
@@ -38,10 +40,11 @@ namespace QLTV
 			get { return this.iNam; }
 			set
 			{
-				if (value < 1900 )
+				if (value < 1900)
 					throw new ArgumentOutOfRangeException
 					(" must be > 1900");
-				this.iThang = value;
+				else
+					this.iNam = value;
 			}
 		}
 		public Date()
