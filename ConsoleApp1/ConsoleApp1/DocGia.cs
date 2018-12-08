@@ -48,8 +48,8 @@ namespace QLTV
 		}
 		public DocGia() : base()
         {
-
-        }
+			this.dtNgayHetHanThe = new Date();
+		}
         public DocGia(int MaDG, string HoTen, string DiaChi, string SDT, int NgaySinh,int ThangSinh, int NamSinh, string Email, int NgayHH, int ThangHH, int NamHH, double TaiKhoan) : base(HoTen, DiaChi, SDT, NgaySinh,ThangSinh,NamSinh)
         {
             this.iMaDG = MaDG;
