@@ -9,15 +9,10 @@ namespace QLTV
     class DauSachGiaoTrinh:DauSach
     {
         protected string sBoMon;
-        protected int iTinhTrang;          //0 là cũ , 1 là mới
 		protected List<QuyenSachGiaoTrinh> lDSQuyenSach;
 		public string BoMon
 		{
 			get { return this.sBoMon; }
-		}
-		public int TinhTrang
-		{
-			get { return this.iTinhTrang; }
 		}
 		public List<QuyenSachGiaoTrinh> DSQuyenSach
 		{
@@ -49,14 +44,6 @@ namespace QLTV
 		}
 		public override void TinhThanhTien()
 		{
-			if (this.iTinhTrang == 0)
-			{
-				this.dThanhTien = (this.dGia / 2) + (this.dThue * this.dGia/100);
-			}
-			else
-			{
-				this.dThanhTien = this.dGia + (this.dThue * this.dGia/100);
-			}
 		}
 		public override void XacDinhThue()
 		{

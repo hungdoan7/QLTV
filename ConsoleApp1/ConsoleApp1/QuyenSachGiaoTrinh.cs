@@ -12,6 +12,7 @@ namespace QLTV
 		private bool bDaMuonHayChua;
 		private Date dtNgayMuon;
 		private Date dtNgayPhaiTra;
+		private int iTinhTrang;          //0 là cũ , 1 là mới
 		public int MaQuyenSach
 		{
 			get { return this.sMaQuyenSach; }
@@ -36,6 +37,11 @@ namespace QLTV
 			this.bDaMuonHayChua = true;
 			this.dtNgayMuon = new Date();
 			this.dtNgayPhaiTra = new Date();
+		}
+		public int TinhTrang
+		{
+			get { return this.iTinhTrang; }
+			set { this.iTinhTrang = value; }
 		}
 		public QuyenSachGiaoTrinh(string MaDauSach, string Tua, string NXB, string TacGia, double Gia, string BoMon, int TinhTrang,int MaQuyenSach) : base(MaDauSach, Tua, NXB, TacGia, Gia,BoMon)
 		{
