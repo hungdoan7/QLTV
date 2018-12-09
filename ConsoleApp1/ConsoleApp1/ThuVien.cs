@@ -382,7 +382,7 @@ namespace QLTV
 				}
 			}
 		}
-		public void XacDinhLai()
+		public void CapNhatLai()
 		{
 			for (int a = 0; a < this.lDSHopDongMuon.Count; a++)
 			{
@@ -1251,5 +1251,6 @@ namespace QLTV
 				Console.WriteLine("=============================================================================");
 			}
 		}
+
 	}
 }

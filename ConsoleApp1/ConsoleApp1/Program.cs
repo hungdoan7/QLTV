@@ -34,7 +34,7 @@ namespace QLTV
 			{
 				Console.WriteLine("Cap nhat lai tinh hinh thu vien ");
 				Console.Write("\n");
-				thuvien.XacDinhLai();
+				thuvien.CapNhatLai();
 				Console.Write("\n");
 				//Console.WriteLine("Chuong trinh quan ly thu vien ");
 				Console.WriteLine("Cac tuy chon: ");
@@ -74,7 +74,31 @@ namespace QLTV
 											if ((thuvien.DSHopDongMuon[ViTriDG_Temp].SoLuongSachMuon > 10))
 											{
 												Console.Write(" Tra sach truoc khi tiep tuc muon, ban da muon du 10 cuon sach ");
-												//tra sach;
+												int ChonChonChon;
+												Console.WriteLine(" Ban co muon tra sach ngay:(0 la khong, 1 la co) ");
+												ChonChonChon = Convert.ToInt32(Console.ReadLine());
+												switch (ChonChonChon)
+												{
+													case 0:
+														{
+															break;
+														}
+													case 1:
+														{
+															Console.WriteLine("Nhap tua sach hoac ma dau sach: ");
+															string Tua = Console.ReadLine();
+															Console.WriteLine("Nhap ma quyen sach: ");
+															int Quyen = Convert.ToInt32(Console.ReadLine());
+															TraSach ts = new TraSach(thuvien.TraSach);
+															ts(ViTriDG_Temp, Tua, Quyen);
+															break;
+														}
+													default:
+														{
+															Console.WriteLine(" Nhap sai ");
+															break;
+														}
+												}
 												break;
 											}
 											else
