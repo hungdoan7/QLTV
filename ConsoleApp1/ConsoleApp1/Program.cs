@@ -109,16 +109,24 @@ namespace QLTV
 													// Gia han the
 													Console.WriteLine("Chon gia han ngay (0 la khong dong y, 1 la dong y) : ");
 													int ChonChonCHon = Convert.ToInt32(Console.ReadLine());
-													if (ChonChonCHon == 0)
+													switch (ChonChonCHon)
 													{
-														XacDinhNgay xd = new XacDinhNgay(thuvien.XacDinhToday);
-														Date Today_Temp = xd();
-														thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.GiaHanThe(Today_Temp);
-														break;
-													}
-													else
-													{
-														break;
+														case 1:
+															{
+																XacDinhNgay xd = new XacDinhNgay(thuvien.XacDinhToday);
+																Date Today_Temp = xd();
+																thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.GiaHanThe(Today_Temp);
+																break;
+															}
+														case 0:
+															{
+																break;
+															}
+														default:
+															{
+																Console.WriteLine("Nhap sai");
+																break;
+															}
 													}
 												}
 												else
@@ -129,17 +137,25 @@ namespace QLTV
 														//Nap them tien 
 														Console.WriteLine("Chon nap vao tai khoan ngay (0 la khong dong y, 1 la dong y) : ");
 														int ChonChonCHon = Convert.ToInt32(Console.ReadLine());
-														if (ChonChonCHon == 0)
+														switch (ChonChonCHon)
 														{
-															Console.WriteLine(" Nhap so tien can nap: ");
-															double Tien = Convert.ToDouble(Console.ReadLine());
-															Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.Tien);
-															nt(Tien);
-															break;
-														}
-														else
-														{
-															break;
+															case 1:
+																{
+																	Console.WriteLine(" Nhap so tien can nap: ");
+																	double Tien = Convert.ToDouble(Console.ReadLine());
+																	Tien nt = new Tien(thuvien.DSHopDongMuon[ViTriDG_Temp].NguoiMuon.Tien);
+																	nt(Tien);
+																	break;
+																}
+															case 0:
+																{
+																	break;
+																}
+															default:
+																{
+																	Console.WriteLine("Nhap sai");
+																	break;
+																}
 														}
 													}
 												}

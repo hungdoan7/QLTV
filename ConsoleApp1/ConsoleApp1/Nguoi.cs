@@ -9,7 +9,6 @@ namespace QLTV
 	 interface DacTrungDocGia
 	{
 		void GiaHanThe(Date Today);
-		void Tien(double Tien);
 	    void DangKyTaiKhoanMoi(Date Today);
 	}
 	abstract class Nguoi
