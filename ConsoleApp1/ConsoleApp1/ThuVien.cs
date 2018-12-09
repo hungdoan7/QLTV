@@ -294,9 +294,9 @@ namespace QLTV
 			int KHhayGT = Convert.ToInt32(Console.ReadLine());
 			if (KHhayGT == 0)
 			{
-				if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
+				if (this.dtToday < this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
 				{
-					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 30)
+					if ((this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe- this.dtToday) <= 30)
 					{
 						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 2 thang ), can gia han the ");
 						return;
@@ -338,9 +338,9 @@ namespace QLTV
 			}
 			else
 			{
-				if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
+				if (this.dtToday < this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
 				{
-					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 60)
+					if ((this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe - this.dtToday) <= 60)
 					{
 						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 1 thang ), can gia han the ");
 						return;
