@@ -296,9 +296,9 @@ namespace QLTV
 			{
 				if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
 				{
-					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 60)
+					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 30)
 					{
-						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 2 thang ), can gia han the ");
+						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 2 thang ), can gia han the ");
 						return;
 					}
 				}
@@ -340,9 +340,9 @@ namespace QLTV
 			{
 				if (this.dtToday > this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe)
 				{
-					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 30)
+					if ((this.dtToday - this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe) <= 60)
 					{
-						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 1 thang ), can gia han the ");
+						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 1 thang ), can gia han the ");
 						return;
 					}
 				}
