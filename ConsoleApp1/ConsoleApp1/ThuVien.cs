@@ -1232,5 +1232,24 @@ namespace QLTV
 				Console.WriteLine("\n");
 			}
 		}
+		public void TatCaHopDong()
+		{
+			foreach (var c in this.lDSHopDongMuon)
+			{
+				c.NguoiMuon.Xuat();
+				Console.WriteLine(" So luong sach muon la:" + c.SoLuongSachMuon + "\n");
+				foreach (var d in c.DSSachGTMuon)
+				{
+					d.Xuat();
+					Console.WriteLine("\n");
+				}
+				foreach (var d in c.DSSachKHMuon)
+				{
+					d.Xuat();
+					Console.WriteLine("\n");
+				}
+				Console.WriteLine("=============================================================================");
+			}
+		}
 	}
 }

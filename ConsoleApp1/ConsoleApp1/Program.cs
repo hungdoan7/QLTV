@@ -29,7 +29,7 @@ namespace QLTV
 			thuvien.NhapThuVien();
 			thuvien.NhapHDMuon();
 			
-			int Temp;
+			int Temp;     // bien dung cho viec quay lai menu
 			do
 			{
 				Console.WriteLine("Cap nhat lai tinh hinh thu vien ");
@@ -234,6 +234,7 @@ namespace QLTV
 							Console.WriteLine(" 12.Xuat ra man hinh danh sach sach giao trinh theo thu tu gia tang dan ");
 							Console.WriteLine(" 13.Xuat ra man hinh danh sach sap xep doc gia theo thu tu giam dan tong so sach dang muon  ");
 							Console.WriteLine(" 14.Xuat ra man hinh danh sach sach khoa hoc theo thu tu gia giam dan ");
+							Console.WriteLine(" 15.Xuat ra man hinh danh sach tat ca cac ban hop dong ");
 							Console.Write(" Chon:  ");
 							ChonChon = Convert.ToInt32(Console.ReadLine());
 							switch (ChonChon)
@@ -327,7 +328,13 @@ namespace QLTV
 									}
 								case 14:
 									{
-										DanhSach ds = (thuvien.SapXepDanhSachSachKHTheoGiaGiamDan);
+										DanhSach ds = new DanhSach(thuvien.SapXepDanhSachSachKHTheoGiaGiamDan);
+										ds();
+										break;
+									}
+								case 15:
+									{
+										DanhSach ds = new DanhSach(thuvien.TatCaHopDong);
 										ds();
 										break;
 									}
