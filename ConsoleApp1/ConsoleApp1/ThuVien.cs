@@ -500,7 +500,7 @@ namespace QLTV
 		{
 			NhanVien NguoiDangKy = new NhanVien();
 			NguoiDangKy.Nhap();
-			NguoiDangKy.MaNV = (this.DSDocGia[this.DSNhanVien.Count - 1].MaDG + 1);
+			NguoiDangKy.MaNV = (this.DSNhanVien[this.DSNhanVien.Count - 1].MaNV + 1);
 			this.lDSNhanVien.Add(NguoiDangKy);
 		}
 		public int KiemTraViTriDocGiaTrongListHD(string NhapVao)
