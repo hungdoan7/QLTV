@@ -243,24 +243,6 @@ namespace QLTV
 				Console.Write("\n\n");
 			}
 		}
-		public void XuatDSHDMuon()
-		{
-			for (int i = 0; i < DSHopDongMuon.Count; i++)
-			{
-				Console.WriteLine("Nguoi muon: " + DSHopDongMuon[i].NguoiMuon.HoTen);
-
-				for (int j = 0; j < this.lDSHopDongMuon[i].DSSachKHMuon.Count; j++)
-				{
-					this.lDSHopDongMuon[i].DSSachKHMuon[j].Xuat();
-					Console.Write("\n\n");
-				}
-				for (int j = 0; j < this.lDSHopDongMuon[i].DSSachGTMuon.Count; j++)
-				{
-					this.lDSHopDongMuon[i].DSSachGTMuon[j].Xuat();
-					Console.Write("\n\n");
-				}
-			}
-		}
 		public void XuatDSSachConTrongThuVien()
 		{
 			Console.WriteLine("\n DS sach con lai trong thu vien \n");
@@ -298,7 +280,7 @@ namespace QLTV
 				{
 					if ((this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe- this.dtToday) <= 30)
 					{
-						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 2 thang ), can gia han the ");
+						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach KH ( the chi con hieu luc duoi 1 thang ), can gia han the ");
 						return;
 					}
 				}
@@ -342,7 +324,7 @@ namespace QLTV
 				{
 					if ((this.lDSHopDongMuon[ViTriDocGia].NguoiMuon.NgayHetHanThe - this.dtToday) <= 60)
 					{
-						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 1 thang ), can gia han the ");
+						Console.WriteLine(" Khong du dieu kien thoi gian de muon sach GT ( the chi con hieu luc duoi 2 thang ), can gia han the ");
 						return;
 					}
 				}
@@ -377,7 +359,7 @@ namespace QLTV
 				}
 				else
 				{
-					Console.WriteLine(" Ma dau sach chua ton tai ");
+					Console.WriteLine(" Ma dau sach chua ton tai hoac nhap chua dung ");
 					return;
 				}
 			}
@@ -622,7 +604,16 @@ namespace QLTV
 					//string MaQuyen_Temp = Console.ReadLine();
 					Console.Write(" Nhap vao trinh trang cuon sach:(0 la cu, 1 la moi): ");
 					int TinhTrang_Temp = Convert.ToInt32(Console.ReadLine());
-					QuyenSachGiaoTrinh QuyenSachGT_Temp = new QuyenSachGiaoTrinh(this.lDSDauSachGT[ViTriDauSach].MaDauSach, this.lDSDauSachGT[ViTriDauSach].Tua, this.lDSDauSachGT[ViTriDauSach].NXB, this.lDSDauSachGT[ViTriDauSach].TacGia, this.lDSDauSachGT[ViTriDauSach].Gia, this.lDSDauSachGT[ViTriDauSach].BoMon, TinhTrang_Temp, this.lDSDauSachGT[ViTriDauSach].DSQuyenSach[this.lDSDauSachGT[ViTriDauSach].DSQuyenSach.Count - 1].MaQuyenSach + 1);
+					QuyenSachGiaoTrinh QuyenSachGT_Temp = new QuyenSachGiaoTrinh();
+					if (this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Count != 0)
+					{
+						QuyenSachGT_Temp = new QuyenSachGiaoTrinh(this.lDSDauSachGT[ViTriDauSach].MaDauSach, this.lDSDauSachGT[ViTriDauSach].Tua, this.lDSDauSachGT[ViTriDauSach].NXB, this.lDSDauSachGT[ViTriDauSach].TacGia, this.lDSDauSachGT[ViTriDauSach].Gia, this.lDSDauSachGT[ViTriDauSach].BoMon, TinhTrang_Temp, this.lDSDauSachGT[ViTriDauSach].DSQuyenSach[this.lDSDauSachGT[ViTriDauSach].DSQuyenSach.Count - 1].MaQuyenSach + 1);
+					}
+					else
+					{
+						 QuyenSachGT_Temp = new QuyenSachGiaoTrinh(this.lDSDauSachGT[ViTriDauSach].MaDauSach, this.lDSDauSachGT[ViTriDauSach].Tua, this.lDSDauSachGT[ViTriDauSach].NXB, this.lDSDauSachGT[ViTriDauSach].TacGia, this.lDSDauSachGT[ViTriDauSach].Gia, this.lDSDauSachGT[ViTriDauSach].BoMon, TinhTrang_Temp, 1);
+
+					}
 					this.lDSDauSachGT[ViTriDauSach].DSQuyenSach.Add(QuyenSachGT_Temp);
 					this.lDSDauSachGT[ViTriDauSach].SoLuongTrongThuVien++;
 					dem++;
@@ -677,9 +668,15 @@ namespace QLTV
 				{
 
 					Console.WriteLine("Cuon thu " + dem + " dinh them vao :");
-					//Console.Write(" Nhap vao ma sach moi ");
-					//string MaQuyen_Temp = Console.ReadLine();
-					QuyenSachKhoaHoc QuyenSachKH_Temp = new QuyenSachKhoaHoc(this.lDSDauSachKH[ViTriDauSach].MaDauSach, this.lDSDauSachKH[ViTriDauSach].Tua, this.lDSDauSachKH[ViTriDauSach].NXB, this.lDSDauSachKH[ViTriDauSach].TacGia, this.lDSDauSachKH[ViTriDauSach].Gia, this.lDSDauSachKH[ViTriDauSach].ChuyenNganh, this.lDSDauSachKH[ViTriDauSach].DSQuyenSach[this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Count - 1].MaQuyenSach + 1);
+					QuyenSachKhoaHoc QuyenSachKH_Temp = new QuyenSachKhoaHoc();
+					if (this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Count != 0)
+					{
+					QuyenSachKH_Temp = new QuyenSachKhoaHoc(this.lDSDauSachKH[ViTriDauSach].MaDauSach, this.lDSDauSachKH[ViTriDauSach].Tua, this.lDSDauSachKH[ViTriDauSach].NXB, this.lDSDauSachKH[ViTriDauSach].TacGia, this.lDSDauSachKH[ViTriDauSach].Gia, this.lDSDauSachKH[ViTriDauSach].ChuyenNganh, this.lDSDauSachKH[ViTriDauSach].DSQuyenSach[this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Count - 1].MaQuyenSach + 1);
+					}
+					else
+					{
+					QuyenSachKH_Temp = new QuyenSachKhoaHoc(this.lDSDauSachKH[ViTriDauSach].MaDauSach, this.lDSDauSachKH[ViTriDauSach].Tua, this.lDSDauSachKH[ViTriDauSach].NXB, this.lDSDauSachKH[ViTriDauSach].TacGia, this.lDSDauSachKH[ViTriDauSach].Gia, this.lDSDauSachKH[ViTriDauSach].ChuyenNganh, 1);
+					}
 					this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Add(QuyenSachKH_Temp);
 					this.lDSDauSachKH[ViTriDauSach].SoLuongTrongThuVien++;
 					dem++;
@@ -700,8 +697,8 @@ namespace QLTV
 				int dem = 1;
 				for (int i = SoLuongBanDau; i < SoLuongBanDau + soluong; i++)
 				{
-					//Console.Write(" Nhap vao ma sach moi ");
-					//string MaQuyen_Temp = Console.ReadLine();
+
+					Console.WriteLine("Cuon thu " + dem + " dinh them vao :");
 					QuyenSachKhoaHoc QuyenSachKH_Temp = new QuyenSachKhoaHoc();
 					if (this.lDSDauSachKH[ViTriDauSach].DSQuyenSach.Count != 0)
 					{

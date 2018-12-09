@@ -63,8 +63,7 @@ namespace QLTV
 								Console.WriteLine(" 2.Tra sach ");
 								Console.WriteLine(" 3.KT thong tin ");
 								Console.WriteLine(" 4.Nap them tien vao tai khoan ");
-								Console.WriteLine(" 5.Nang cap len VIP ");
-								Console.WriteLine(" 6.Gia han the thu vien ");
+								Console.WriteLine(" 5.Gia han the thu vien ");
 								Console.Write("Chon: ");
 								ChonChon = Convert.ToInt32(Console.ReadLine());
 								switch (ChonChon)
@@ -190,11 +189,6 @@ namespace QLTV
 											break;
 										}
 									case 5:
-										{
-
-											break;
-										}
-									case 6:
 										{
 											XacDinhNgay xd = new XacDinhNgay(thuvien.XacDinhToday);
 											Date Today_Temp = xd();
