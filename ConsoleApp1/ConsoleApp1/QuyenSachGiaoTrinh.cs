@@ -97,11 +97,11 @@ namespace QLTV
 		public void MuonNgayHomNay(Date Today)
 		{
 			this.dtNgayMuon = Today;
-			this.dtNgayPhaiTra = (Today + 90);
+			this.dtNgayPhaiTra = (Today + 120);
 		}
 		public void TraSach()
 		{
-			this.bDaMuonHayChua = false;
+			this.bDaMuonHayChua = true;
 			this.dtNgayMuon = new Date();
 			this.dtNgayPhaiTra = new Date();
 		}

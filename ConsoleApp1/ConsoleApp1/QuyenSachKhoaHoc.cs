@@ -76,7 +76,7 @@ namespace QLTV
 		}
 		public void TraSach()
 		{
-			this.bDaMuonHayChua = false;
+			this.bDaMuonHayChua = true;
 			this.dtNgayMuon = new Date();
 			this.dtNgayPhaiTra = new Date();
 		}
