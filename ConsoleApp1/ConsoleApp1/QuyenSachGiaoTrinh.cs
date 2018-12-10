@@ -81,7 +81,7 @@ namespace QLTV
 				Console.WriteLine(" Nam trong thu vien!  ");
 			}
 			Console.WriteLine(" Ma quyen sach: " + this.sMaQuyenSach);
-			Console.WriteLine(" Thanh tien: "+this.dThanhTien);
+			
 		}
 		public override void TinhThanhTien()
 		{

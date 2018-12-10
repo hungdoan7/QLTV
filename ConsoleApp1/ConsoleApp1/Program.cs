@@ -267,7 +267,7 @@ namespace QLTV
 							Console.WriteLine(" 10.Thong ke so luong sach duoc muon va phan tram so voi so sach ban dau ");
 							Console.WriteLine(" 11.Sap xep danh sach doc gia theo thu tu tang dan ngay het han the ");
 							Console.WriteLine(" 12.Xuat ra man hinh danh sach sach giao trinh theo thu tu gia tang dan ");
-							Console.WriteLine(" 13.Xuat ra man hinh danh sach sap xep doc gia theo thu tu giam dan tong so sach dang muon  ");
+							Console.WriteLine(" 13.Xuat ra man hinh danh sach sap xep doc gia theo thu tu tang dan tong so sach dang muon  ");
 							Console.WriteLine(" 14.Xuat ra man hinh danh sach sach khoa hoc theo thu tu gia giam dan ");
 							Console.WriteLine(" 15.Xuat ra man hinh danh sach tat ca cac ban hop dong ");
 							Console.Write(" Chon:  ");
@@ -357,7 +357,7 @@ namespace QLTV
 									}
 								case 13:
 									{
-										CongViec cv = new CongViec(thuvien.SapXepDocGiaTheoSoSachMuonGiamDan);
+										CongViec cv = new CongViec(thuvien.SapXepDocGiaTheoSoSachMuonTangDan);
 										cv(thuvien.DSHopDongMuon.Count);
 										break;
 									}

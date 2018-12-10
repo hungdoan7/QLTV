@@ -111,7 +111,7 @@ namespace QLTV
 			Temp3.SoLuongTrongThuVien++;
 			this.lDSDauSachGT.Add(Temp3);
 
-			DocGia Temp5 = new DocGia(1, "Nguyen Huynh Anh Truc ", "HCM", "0167723899", 1, 1, 1999, "Truc@mail", 10, 12, 2018, 100000);
+			DocGia Temp5 = new DocGia(1, "Nguyen Huynh Anh Truc ", "HCM", "0167723899", 1, 1, 1999, "Truc@mail", 10, 2, 2019, 100000);
 			this.lDSDocGia.Add(Temp5);
 			Temp5 = new DocGia(2, "Nguyen Minh Thanh ", "HCM", "01645513518", 1, 4, 1999, "Thanh@mail", 25, 11, 2018, 120000);
 			this.lDSDocGia.Add(Temp5);
@@ -1116,7 +1116,7 @@ namespace QLTV
 				SortIncreasingTheDateOfCustomer(i, right);
 			}
 		}
-		public void SapXepDocGiaTheoSoSachMuonGiamDan(int n)
+		public void SapXepDocGiaTheoSoSachMuonTangDan(int n)
 		{
 			int flag = 1;
 			int j = 0;
@@ -1159,7 +1159,7 @@ namespace QLTV
 			{
 				QuyenSachGiaoTrinh x = List_Temp[j];
 				int h = j - 1;
-				while (h > 0 && List_Temp[i].ThanhTien > x.ThanhTien)
+				while (h >= 0 && List_Temp[h].ThanhTien > x.ThanhTien)
 				{
 					List_Temp[h + 1] = List_Temp[h];
 					h--;
@@ -1169,6 +1169,7 @@ namespace QLTV
 			foreach (var c in List_Temp)
 			{
 				c.Xuat();
+				Console.WriteLine(" Thanh tien: " + c.ThanhTien);
 				Console.WriteLine("\n");
 			}
 		}
@@ -1185,9 +1186,10 @@ namespace QLTV
 				}
 				i++;
 			}
+			int MinPos;
 			for ( i = 0; i < List_Temp.Count-1; i++)
 			{
-				int MinPos = i;
+				MinPos = i;
 				for (int j = i + 1; j < List_Temp.Count; j++)
 				{
 					if (List_Temp[j].ThanhTien > List_Temp[MinPos].ThanhTien)
@@ -1205,6 +1207,7 @@ namespace QLTV
 			foreach (var c in List_Temp)
 			{
 				c.Xuat();
+				Console.WriteLine("Gia : "+c.ThanhTien);
 				Console.WriteLine("\n");
 			}
 		}
