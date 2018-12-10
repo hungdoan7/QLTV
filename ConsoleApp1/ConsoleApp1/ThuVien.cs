@@ -381,7 +381,7 @@ namespace QLTV
 							{
 								if (this.lDSDauSachGT[Temp].DSQuyenSach[c].MaQuyenSach == this.lDSHopDongMuon[a].DSSachGTMuon[b].MaQuyenSach)
 								{
-									Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + "\n");
+									Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa 1 cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + "\n");
 									this.lDSDauSachGT[a].DSQuyenSach.Remove(this.lDSHopDongMuon[a].DSSachGTMuon[b]);
 									this.lDSDauSachGT[a].SoLuongTrongThuVien--;
 									this.lDSHopDongMuon[a].DSSachGTMuon.Remove(this.lDSHopDongMuon[a].DSSachGTMuon[b]);
@@ -392,7 +392,7 @@ namespace QLTV
 						}
 						else
 						{
-							Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + " sap toi han tra\n");
+							Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon 1 cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + " sap toi han tra\n");
 						}
 					}
 				}
@@ -409,7 +409,7 @@ namespace QLTV
 							{
 								if (this.lDSDauSachKH[Temp].DSQuyenSach[c].MaQuyenSach == this.lDSHopDongMuon[a].DSSachKHMuon[b].MaQuyenSach)
 								{
-									Console.Write("doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + "\n");
+									Console.Write("doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa 1 cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + "\n");
 									this.lDSDauSachKH[a].DSQuyenSach.Remove(this.lDSHopDongMuon[a].DSSachKHMuon[b]);
 									this.lDSDauSachKH[a].SoLuongTrongThuVien--;
 									this.lDSHopDongMuon[a].DSSachKHMuon.Remove(this.lDSHopDongMuon[a].DSSachKHMuon[b]);
@@ -420,7 +420,7 @@ namespace QLTV
 						}
 						else
 						{
-							Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + " sap toi han tra\n");
+							Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon 1 cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + " sap toi han tra\n");
 						}
 					}
 				}
@@ -441,7 +441,7 @@ namespace QLTV
 						{
 							if (this.lDSDauSachGT[Temp].DSQuyenSach[c].MaQuyenSach == this.lDSHopDongMuon[a].DSSachGTMuon[b].MaQuyenSach)
 							{
-								Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + "\n");
+								Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa 1 cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + "\n");
 								this.lDSDauSachGT[a].DSQuyenSach.Remove(this.lDSHopDongMuon[a].DSSachGTMuon[b]);
 								this.lDSDauSachGT[a].SoLuongTrongThuVien--;
 								this.lDSHopDongMuon[a].DSSachGTMuon.Remove(this.lDSHopDongMuon[a].DSSachGTMuon[b]);
@@ -452,7 +452,7 @@ namespace QLTV
 					}
 					else
 					{
-						Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + " sap toi han tra\n");
+						Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon 1 cuon sach " + this.lDSHopDongMuon[a].DSSachGTMuon[b].Tua + " sap toi han tra\n");
 					}
 				}
 			}
@@ -469,7 +469,7 @@ namespace QLTV
 						{
 							if (this.lDSDauSachKH[Temp].DSQuyenSach[c].MaQuyenSach == this.lDSHopDongMuon[a].DSSachKHMuon[b].MaQuyenSach)
 							{
-								Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + "\n");
+								Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "lam mat sach nen xoa 1 cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + "\n");
 								this.lDSDauSachKH[a].DSQuyenSach.Remove(this.lDSHopDongMuon[a].DSSachKHMuon[b]);
 								this.lDSDauSachKH[a].SoLuongTrongThuVien--;
 								this.lDSHopDongMuon[a].DSSachKHMuon.Remove(this.lDSHopDongMuon[a].DSSachKHMuon[b]);
@@ -480,7 +480,7 @@ namespace QLTV
 					}
 					else
 					{
-						Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + " sap toi han tra\n");
+						Console.Write("Doc gia " + this.lDSHopDongMuon[a].NguoiMuon.HoTen + "co muon cuon 1 sach " + this.lDSHopDongMuon[a].DSSachKHMuon[b].Tua + " sap toi han tra\n");
 					}
 				}
 			}
@@ -889,61 +889,58 @@ namespace QLTV
 		}
 		public void XuatRaTatCaSachKHDaDuocMuon()
 		{
-			int i = 0;
-			while (i!=this.DSDauSachKH.Count)
+			foreach (var c in this.DSDauSachKH)
 			{
-				var emty = this.DSDauSachKH[i].DSQuyenSach.Where(x => x.DaMuonHayChua == false);
-				foreach (var c in emty)
+				var emty = c.DSQuyenSach.Where(x => x.DaMuonHayChua == false);
+				foreach (var d in emty)
 				{
-					c.Xuat();
+					d.Xuat();
 					Console.WriteLine("\n");
 				}
-				i++;
 			}
 		}
 		public void XuatRaTatCaSachGTDaDuocMuon()
 		{
-			int i = 0;
-			while (i != this.DSDauSachGT.Count)
+			IEnumerable<QuyenSachGiaoTrinh> emty = new List<QuyenSachGiaoTrinh>();
+			foreach (var c in this.DSDauSachGT)
 			{
-				var emty = this.DSDauSachGT[i].DSQuyenSach.Where(x => x.DaMuonHayChua == false);
-				foreach (var c in emty)
+				emty = from d in c.DSQuyenSach
+						   where d.DaMuonHayChua == false
+						   select d;
+				foreach (var d in emty)
 				{
-					c.Xuat();
+					d.Xuat();
 					Console.WriteLine("\n");
 				}
-				i++;
 			}
 		}
 		public void XuatRaTatCaSachKHNamTrongThuVien()
 		{
-			int i = 0;
-			while (i != this.DSDauSachKH.Count)
+			foreach (var c in this.DSDauSachKH)
 			{
-				var emty = this.DSDauSachKH[i].DSQuyenSach.Where(x => x.DaMuonHayChua == true);
-				foreach (var c in emty)
+				var emty = c.DSQuyenSach.Where(x => x.DaMuonHayChua == true);
+				foreach (var d in emty)
 				{
-					c.Xuat();
+					d.Xuat();
 					Console.WriteLine("\n");
 				}
-				i++;
 			}
 		}
 		public void XuatRaTatCaSachGTNamTrongThuVien()
 		{
-			int i = 0;
-			while (i != this.DSDauSachGT.Count)
+			IEnumerable<QuyenSachGiaoTrinh> emty = new List<QuyenSachGiaoTrinh>();
+			foreach (var c in this.DSDauSachGT)
 			{
-				var emty = this.DSDauSachGT[i].DSQuyenSach.Where(x => x.DaMuonHayChua == true);
-			
-				foreach (var c in emty)
+				emty = from d in c.DSQuyenSach
+					   where d.DaMuonHayChua == true
+					   select d;
+				foreach (var d in emty)
 				{
-					c.Xuat();
-					Console.WriteLine("\n");
+					d.Xuat();
 				}
-				i++;
 			}
 		}
+		
 		public void XuatRaDanhSachDocGia()
 		{
 			var emty = from c in this.DSDocGia
@@ -954,11 +951,23 @@ namespace QLTV
 				Console.WriteLine("\n");
 			}
 		}
+		
 		public void DocGiaMuonNhieuNhat()
 		{
-			XacDinh xd = new XacDinh(this.XacDinhSLMuonNhieuNhat);
+			int max = this.DSHopDongMuon[0].SoLuongSachMuon;
+			XacDinhMax xdmax = delegate(int a)
+			{
+				for (int i = 0; i < this.lDSHopDongMuon.Count; i++)
+				{
+					if (this.lDSHopDongMuon[i].SoLuongSachMuon > a)
+					{
+						a = this.lDSHopDongMuon[i].SoLuongSachMuon;
+					}
+				}
+				return a;
+			};
 			var emty = from c in this.lDSHopDongMuon
-					   where c.SoLuongSachMuon == xd()
+					   where c.SoLuongSachMuon == xdmax(max)
 					   select c.NguoiMuon;
 			foreach (var c in emty)
 			{
@@ -966,18 +975,7 @@ namespace QLTV
 				Console.WriteLine("\n");
 			}
 		}
-		public int XacDinhSLMuonNhieuNhat()
-		{
-			int max = this.lDSHopDongMuon[0].SoLuongSachMuon;
-			for (int i = 0; i < this.lDSHopDongMuon.Count; i++)
-			{
-				if (this.lDSHopDongMuon[i].SoLuongSachMuon > max)
-				{
-					max = this.lDSHopDongMuon[i].SoLuongSachMuon;
-				}
-			}
-			return max;
-		}
+
 		public void SachLonHonTienCuThe(double Tien)
 		{
 			int i = 0;
@@ -1048,45 +1046,34 @@ namespace QLTV
 		{
 			int tongsach = 0;
 			int sachmuon = 0;
-			for (int i = 0; i < this.lDSDauSachGT.Count; i++)
+			IEnumerable<QuyenSachGiaoTrinh> emty1 = new List<QuyenSachGiaoTrinh>();
+			IEnumerable<QuyenSachKhoaHoc> emty2 = new List<QuyenSachKhoaHoc>();
+			foreach(var c in this.DSDauSachGT)
 			{
-				for (int j = 0; j < this.lDSDauSachGT[i].DSQuyenSach.Count; j++)
+				var emty3 = from d in c.DSQuyenSach
+							select d;
+				foreach (var e in emty3)
 				{
-					if (this.lDSDauSachGT[i].DSQuyenSach[j].DaMuonHayChua == false)
+					if (e.DaMuonHayChua == false)
 					{
 						sachmuon++;
 					}
 					tongsach++;
 				}
 			}
-			for (int i = 0; i < this.lDSDauSachKH.Count; i++)
+			foreach (var c in this.DSDauSachKH)
 			{
-				for (int j = 0; j < this.lDSDauSachKH[i].DSQuyenSach.Count; j++)
+				var emty3 = from d in c.DSQuyenSach
+							select d;
+				foreach (var e in emty3)
 				{
-					if (this.lDSDauSachKH[i].DSQuyenSach[j].DaMuonHayChua == false)
+					if (e.DaMuonHayChua == false)
 					{
 						sachmuon++;
 					}
 					tongsach++;
 				}
 			}
-			//int i ;
-			//IEnumerable<QuyenSachGiaoTrinh> emty1;
-			//IEnumerable<QuyenSachKhoaHoc> emty2;
-			//for ( i=0; i < this.lDSDauSachGT.Count; i++)
-			//{
-			//	emty1 = from c in this.DSDauSachGT[i].DSQuyenSach
-			//				select c;
-			//}
-			//for (i = 0; i < this.lDSDauSachKH.Count; i++)
-			//{
-			//	 emty2 = from c in this.DSDauSachKH[i].DSQuyenSach
-			//				select c;
-			//}
-			//foreach (var c in emty1)
-			//{
-			//	if(c)
-			//}
 			Console.WriteLine(" Tong so sach la: "+tongsach);
 			Console.WriteLine(" So sach muon la: " + sachmuon);
 			Console.WriteLine(" So sach nam trong thu vien la: " + (tongsach - sachmuon));
@@ -1245,6 +1232,7 @@ namespace QLTV
 					d.Xuat();
 					Console.WriteLine("\n");
 				}
+
 				Console.WriteLine("=============================================================================");
 			}
 		}
