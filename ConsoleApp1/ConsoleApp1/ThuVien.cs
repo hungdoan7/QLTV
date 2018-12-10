@@ -734,7 +734,7 @@ namespace QLTV
 					do
 					{
 						int Temp = dem;
-						if (this.lDSDauSachGT[ViTriDauSach].DSQuyenSach[i].DaMuonHayChua == false)
+						if (this.lDSDauSachGT[ViTriDauSach].DSQuyenSach[i].DaMuonHayChua == true)
 						{
 							this.lDSDauSachGT[ViTriDauSach].DSQuyenSach.Remove(this.lDSDauSachGT[ViTriDauSach].DSQuyenSach[i]);
 							this.lDSDauSachGT[ViTriDauSach].SoLuongTrongThuVien--;

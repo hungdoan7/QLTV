@@ -96,6 +96,7 @@ namespace QLTV
 		}
 		public void MuonNgayHomNay(Date Today)
 		{
+			this.bDaMuonHayChua = false;
 			this.dtNgayMuon = Today;
 			this.dtNgayPhaiTra = (Today + 120);
 		}
