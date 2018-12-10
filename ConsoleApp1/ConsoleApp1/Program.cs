@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace QLTV
 {
+	public delegate int XacDinhMax(int a);
 	public delegate int XacDinh();
 	public delegate int KiemTra(String NhapVao);
 	public delegate void Ngay(Date Today);

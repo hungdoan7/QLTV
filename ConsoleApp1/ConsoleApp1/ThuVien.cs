@@ -937,6 +937,7 @@ namespace QLTV
 				foreach (var d in emty)
 				{
 					d.Xuat();
+					Console.WriteLine("\n");
 				}
 			}
 		}
